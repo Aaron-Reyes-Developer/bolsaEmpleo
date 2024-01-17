@@ -1,0 +1,169 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+:root{
+    --colorPrincipal: #adadad;
+    --colorSecundario: #adadad;
+    --colorTexto: #424242;
+    --FuenteRoboto: 'Roboto', sans-serif;
+    --colorBoton: #04ec64;
+    --colorFooter: #274546;
+    --coloFondo: #D9D9D9;
+}
+
+
+
+
+.navbar{
+    height: 60px;
+    z-index: 1;
+}
+.navbar-brand img{
+    width: 150px;
+    height: 100%;
+    object-fit: contain;
+    
+}
+/* AVATAR */
+.lista-avatar-nav{
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--coloFondo) !important;
+}
+.iconoEnlace img{
+    width: 22px;
+}
+/* enlace avatar */
+.enlace-avatar{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+.enlace-avatar img{
+    width: 143%;
+    height: 143%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.navbar-nav{
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+
+
+
+
+/* MAIN */
+.contenedorComentarios{
+    width: 100%;
+    height: calc(100vh - 60px);
+    display: flex;
+    position: relative;
+    /* background-color: #04ec64; */
+}
+
+/* seccion portada */
+.seccionPortada, .seccionFormulario{
+    width: 50%;
+    height: 100%;
+}.seccionPortada img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+/* seccion formulario */
+.seccionFormulario{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.formulario{
+    width: 40vw;
+    height: 80%;
+    background-color: #fff;
+    box-shadow: 1px 1px 10px #bdbdbd;
+    padding: 20px;
+}
+.formulario h1{
+    color: var(--colorBoton);
+    font-size: 2.5vw;
+    text-align: center;
+}
+.formulario p{
+    color: #8d8d8d;
+    font-size: 13px;
+    text-align: start;
+}
+
+.formulario label, .formulario textarea{
+    color: var(--colorTexto);
+}
+.botonEnviar{
+    color: var(--colorTexto);
+    background-color: var(--colorBoton);
+    border: 1px solid #424242;
+    width: 100%;
+}
+
+
+
+/* HEADER BOOSTRAP */
+@media screen and (max-width: 991px) {
+
+    /* se mueve el navar y se sale de lugar, por eso le pongo un margin top de -10 */
+    .container-fluid{
+        margin-top: -10px;
+        background-color: #fdfdfd;
+    }
+
+    .navbar-nav{
+        padding: 0 2rem;
+        width: 100%;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .lista-avatar-nav{
+        margin-left: -1rem;
+    }
+    
+}
+
+
+/* RESPONSIVE PORTADA / FORMULARIO */
+@media screen and (max-width: 760px) {
+
+    .seccionPortada{
+        display: none;
+    }
+    .seccionFormulario{
+        width: 100%;
+    }
+    .formulario{
+        width: 80vw;
+    }
+    .formulario h1{
+        font-size: 6vw;
+    }
+    
+}

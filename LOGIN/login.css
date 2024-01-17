@@ -1,0 +1,236 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+:root{
+    --colorPrincipal: #adadad;
+    --colorSecundario: #adadad;
+    --colorTexto: #424242;
+    --FuenteRoboto: 'Roboto', sans-serif;
+    --colorBoton: #04ec64;
+    --colorCuadrosFondo: #0FD762;
+    --colorFooter: #274546;
+}
+
+
+
+/* HEADER */
+.navbar-brand img{
+    width: 200px;
+    height: 80px;
+    object-fit: contain;
+}
+.boton-registrar{
+    background-color: var(--colorBoton);
+    border: solid 1px #000;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* FLEX MAIN */
+.main{
+    width: 100%;
+    height: calc(100vh - 107px); /*el 107 es lo alto de el header*/
+    display: flex;
+
+}
+/* LOGIN INPUTS */
+.seccion-login-input{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.formulario{
+    width: 70%;
+    height: 90%;
+    /* border: solid 2px #424242; */
+    padding:10px ;
+    display: flex;
+    flex-direction: column;
+    
+}
+.contenedor-titulo{ margin: 0 0 20px 0; }
+.contenedor-titulo h2{  font-family: var(--FuenteRoboto);   }
+.contenedor-titulo span{
+    font-family: var(--FuenteRoboto);
+    font-size: 14px;
+}
+.contenedor-lineas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    margin: 10px 0;
+    text-align: center;
+}
+.contenedor-lineas .lineas{
+    width: 33.3%;
+    height: 1px;
+    background-color: #424242;
+}
+.contenedor-lineas span{
+    font-size: 13px;
+    color: #424242;
+}
+.contenedor-contraseña{
+    /* background-color: yellowgreen; */
+    position: relative;
+}
+.contenedor-contraseña img{
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.contenedor-correo{ margin: 10px 0; }
+.perdi-contraseña, .registrarme{
+    color: #424242;
+    font-size: 14px;
+    margin-bottom: 5px;
+    
+}
+.perdi-contraseña:hover , .registrarme:hover{
+    color: rgb(47, 47, 253);
+    font-size: 14px;
+}
+.boton-enviar-login{
+    background-color: #04ec64 !important;
+    border: 1px solid #424242 !important;
+    color: #424242;
+}
+.boton-enviar-login:hover{
+    background-color: #0FD762 !important;
+    border: 1px solid #424242 !important;
+    color: #424242;
+}
+
+
+
+/* Portada login */
+.seccion-portada-login{
+    width: 50%;
+    height: 100%;
+    background-image: url("../imagenes/portadaLogin.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}
+.contenedor-imagen-logo{
+    height: 68%;
+    position: relative;
+}
+/* imagen 1 */
+.contenedor-imagen-logo .imagen1{
+    width: 250px;
+    height: 200px;
+    box-shadow: 9px 9px 10px rgba(0, 0, 0, 0.37);
+    position: absolute;
+    right: 5%;
+    top: 7%;
+    z-index: 1;
+}
+.contenedor-imagen-logo .imagen1 img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* imagen 2 */
+.contenedor-imagen-logo .imagen2{
+    width: 250px;
+    height: 200px;
+    box-shadow: 9px 9px 10px rgba(0, 0, 0, 0.37);
+    position: absolute;
+    left: 10%;
+    bottom:  7%;
+    z-index: 0;
+}
+.contenedor-imagen-logo .imagen2 img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.contenedor-texto-login {
+    padding: 0 30px;
+    height: 32%;
+    text-align: center;
+}
+.contenedor-texto-login h1{
+    font-family: var(--FuenteRoboto);
+    color: #fff;
+    font-weight: bolder;
+    font-size: 1.7rem;
+}
+.contenedor-texto-login p{
+    font-family: var(--FuenteRoboto);
+    color: #fff;
+    font-size: 1rem;
+}
+
+/* Mover el logo responsivo */
+@media screen and (max-width:1100px) {
+    .main{
+        flex-direction: column;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        background-image: url("../imagenes/portadaLogin.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-height: calc(100vh - 107px);
+        height: auto;
+    }
+
+    /* Texto login */
+    .contenedor-titulo h2{  
+        font-family: var(--FuenteRoboto);  
+        font-size: 3rem !important; 
+        color: #fff;
+    }
+    .contenedor-titulo span{
+        color: #fff;
+    }
+
+    /* Lineas */
+    .contenedor-lineas span{
+        color: #fff;
+    }
+    .contenedor-lineas .lineas{
+        background-color: #fff;
+    }
+
+    .seccion-login-input{
+        z-index: 1;
+        width: 90%;
+        
+    }
+    /* formulario */
+    .formulario{
+        width: 100%;
+        height: 100%;
+    }
+    .formulario label{
+       color: #fff;
+    }
+    .boton-enviar-login{
+        background-color: var(--colorCuadrosFondo) !important;
+        border: 1px solid #424242 !important;
+        color: #fff;
+    }
+    .perdi-contraseña, .registrarme{
+        color: #fff;
+        font-size: 14px;
+    }
+
+    .seccion-portada-login, .contenedor-imagen-logo, .contenedor-texto-login{
+        display: none;
+    }
+}

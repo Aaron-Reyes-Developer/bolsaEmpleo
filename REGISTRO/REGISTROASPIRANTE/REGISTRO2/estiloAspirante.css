@@ -1,0 +1,133 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+:root{
+    --colorPrincipal: #adadad;
+    --colorSecundario: #adadad;
+    --colorTexto: #424242;
+    --FuenteRoboto: 'Roboto', sans-serif;
+    --colorBoton: #04ec64;
+    --colorCuadrosFondo: #0FD762;
+    --colorFooter: #274546;
+}
+
+/* HEADER */
+.navbar-brand img{
+    width: 200px;
+    height: 80px;
+    object-fit: contain;
+}
+
+/* MAIN */
+.main{
+    background-color: #F6F6F6;
+    width: 100%;
+    height:  calc(100vh - 107px);
+    display: flex;
+    
+}
+
+/* PORTADA */
+.seccion-portada{
+    background-color: rgb(255, 255, 255);
+    width: 50%;
+}
+.contenedor-imagen-portada, .contenedor-imagen-portada img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+
+
+/* Estilos barra scroll para motores Webkit y blink (Chrome, Safari, Opera... )*/
+.seccion-formulario::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+.seccion-formulario::-webkit-scrollbar:vertical {
+    width:10px;
+}
+.seccion-formulario::-webkit-scrollbar-button:increment,.seccion-formulario::-webkit-scrollbar-button {
+    display: none;
+} 
+.seccion-formulario::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+.seccion-formulario::-webkit-scrollbar-thumb {
+    background-color: #797979;
+    border-radius: 20px;
+    border: 2px solid #f1f2f3;
+}
+.seccion-formulario::-webkit-scrollbar-track {
+    border-radius: 10px;  
+}
+
+
+/* SECCION FORMULARIO */
+.seccion-formulario{
+    padding: 10px 10px 0 10px;
+    width: 50%;
+    overflow-y: scroll;
+}
+
+/* FORMULARIO */
+.formulario{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+/* AVATAR */
+.contenedor-avatar{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.contenedorImagen{
+    width: 200px; height: 200px;
+    background-color: rgb(233, 233, 233);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+.contenedorImagen img{
+    width: 100%; height: 100%;
+    object-fit: cover;
+
+}
+
+/* BOTON ENVIAR */
+.contenedorEnviar{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.contenedorEnviar input{
+    background-color: var(--colorBoton) !important;
+    border: 1px solid #424242;
+}
+
+
+@media screen and (max-width:900px){
+    
+    .seccion-portada{
+        display: none;
+    }
+    .seccion-formulario{
+        width: 100%;
+    }
+    .contenedor-avatar{width: 100%;}
+    .contenedor-boton-imagen{width: 100%;}
+    
+}

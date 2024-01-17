@@ -1,0 +1,135 @@
+-ponerle las palabras clave al index.html ✔️
+-cambiar el nombre del header.css a estiloIndex.css✔️
+-ajustar el boton de continuar en registro2.php (cuando es responsivo se corta la palabra)✔️
+-ver porque solo encuentra un solo registro en login.php ✔️
+-restringir las imagenes pesadas en el registro4   https://www.youtube.com/watch?v=aQ2oS8Tmgro ✔️
+-enseñar a poner el <iframework> en registro4 empresa ✔️
+-restringir correos repetidos  ✔️
+-borrar el registro si no se completa el registro en aspirante ✔️
+-borrar el registro si no se completa el registro en empresa ✔️
+-terminos y condiciones ✔️
+-sesiones en todos los registros✔️
+-validar los registros de aspirante en php ✔️
+-hacer que en cada modal no se pueda apretar afuera de este ✔️
+-agregar en la base de datos en datos_esudiantes el lugar, tipo de trabajo que busca y la carrera donde se graduaron✔️
+-agregar en la base de datos curriculum habilidadades✔️
+-modal para agregar mas productos en perfil aspirante✔️
+-eliminar los formulario si ya estan rellenados en la base de datos en el perfil aspirante ✔️
+-poner un modal cada que el formulairo salga bien en el perfil aspirante ✔️
+-colocar botones apara eliminar conocimientos  ✔️
+-arreglar el diseño responsivo de el portafolio ✔️
+-cambiar el "no se encontro perfil a uno mas bonito" ✔️
+-poner un campo para que se ingrese el iframework de google en los detelles de la empresa✔️
+-poner el campo de gerente general y recursos humanos cuando se rellena los datos de la empresa✔️
+-poner una funcion para editar la informacion de la empresa en el perfilEmpresa.php (es a lo ultimo de la pagian)✔️
+-poner una funcion para editar la imagen de perfil✔️
+-colocar el lugar en el formuario de oferta empleo "el lugar donde sera el empleo"  ✔️
+-otro archivo para recuperacion de contraseña ✔️
+-si borran cualquier metodo REQUEST mandarlo al login ✔️
+-hacer que si un puesto ya lo postulaste el boton de postular desaparesca✔️
+-responsividad en el perfil empresa ✔️
+-en el perfil publico del aspirante poner un boton para contratar✔️
+-encriptar contraseñas con hash ✔️
+-agregar formulario par agregar cedula en administrador ✔️
+-poner logos en cada pagina ✔️
+-PASOS PARA VER IMG DE PDF php ini de xammp apache (buscar "openssl" ) descomentar ;extension=gd  ;extension=openssl ✔️
+-DESCOMENTAR extension=gd EN PHP INI ✔️
+-Agregar un formulario para poner el titulo de graduacion ✔️
+-Agregar un formulario para idioma ✔️
+-Agregar un formulario para link de certificados  ✔️
+-Arreglar la parte de agragar nueva educacion (siempre se va con 'tecnologia de la informacion') ✔️
+-ubicar en el perfil aspirante su especialidad adebajo de su nombre ✔️
+-insertar la cedula en la tabla datos aspirantes ✔️
+-actualizar la cedula dependiendo de lo que pone en el registro 2 aspirante ✔️
+-arreglar el idioma, si no se rellena nada se ingresa campos en blancos ✔️
+-validar que no exista un correo igual para el registro 1 de aspirante ✔️
+-desapareser el boton aprobar en el perfil aspirante publico ✔️
+-arreglar en verOfertasConAspirantes.php que la foto de header no se muestra ✔️
+-poner una paginacion en el incio de aspirante ✔️
+-poner una paginacion en el incio de empresa ✔️
+-agragar una pagina para los link de el inicio aspirante (cuando es media query se muestran dos link) ✔️
+-modificar la consulta de  "SELECT * FROM oferta_trabajo ORDER BY id_oferta_trabajo DESC" para mostrar solo con la oferta que sea para la carrea  ✔️
+-responsividad en detalleOferta.php en aspirante ✔️
+-agregar funcion para editar la oferta de empelo en inicio empresa ✔️
+-ocultar el "editar" en estado de empleo, si no se a llenado el formulario de datos faltantes en perfil aspirante ✔️
+-probar si funciona la paginacion en inico empresa ✔️
+-en el perfil publico de aspirante poner los datos que estan en el perfil de aspirante privado, y arreglar el codigo o algo que este mal ✔️
+-crear un campo en datos aspirante donde tenga "estado_cuenta" donde 0 es que la cuenta esta elminada y 1 es que esta activa ✔️
+-poner un "total aprobados en admin.php" ✔️
+-consultar el login en aspirante cunado el estado_cuenta = 1 ✔️
+-consultar el login en empresa cunado el estado_cuenta = 1 ✔️
+-paginacion funcional en editar aspirante admin✔️
+-arreglar la ruta de cerrar sesion en todas la paginas de admin ✔️
+-agregar en registro 2 aspirante el tipo de carrera graduada por base de datos  ✔️
+-desaparecer los botones de + en perfil aspirante si no se ha rellenado los datos faltantes ✔️
+-ordenar por orden de registro en la lista de inicio empresa ✔️
+-arregar en ver ofoerta con aspirnte, el logo no sale dependinedo de la empresa ✔️
+-arreglar el buscar en perfil empresa, no busca por carrera y asi mismo el estado ✔️
+-cambier el dato "id_oferta" que se le pasa por url a verdetalleofertaconaspirante  ✔️
+-en inicio asprirante poner un buscar por empresa que sera un select donde muestre las empresas que estan en la bd ✔️
+-poner un mensaje modal en encontre empleo, cuando se guarda el registro ✔️
+-obtener los datos de nombre y apellido de la cedula y ponerlos en el input de registro1 aspirante ✔️
+-arreglar en perfil empresa cunado le da click a la carta de oferta mandar el nombre de la oferta en vez de el id ✔️
+-agregar en la seccion admin carreras un input para el titulo de graduado de cada carrera ✔️
+-encriptar las contraseñas en el registro de empresa con hash✔️
+-desaparecer la carta de oferta en ver todas las ofertas en el perfil empresa ✔️
+-poner otro panel en admin para el Tipo de empleo y para Tipo de lugar  ✔️
+-arreglar el buscardor de inico aspirante, solo busca por empresa y quiero que solo busque por nombre de oferta de empleo ✔️
+-agregar la funcion para buscar por empresa mediante un select en inicio aspirante ✔️
+-arreglar el buscador de inicio empresa, osea ponerlo con un procedimiento almacenado para no tener tantos if en el codigo ✔️
+-agregar un seccion para comentarios de la pagina ✔️
+-arreglar el ver detalles de oferta en el perfil publico de la empresa (cuando se visita el perfil de la empresa no puedo ver el detalle de la oferta) ✔️
+-arreglar la seccion postulantes en inicio empresa, mandar el nombre de de la oferta por url ✔️
+-mostrar la imagen del aspirante en el header cuando se visita el perfil publico de una empresa ✔️
+-una vez que se apruebe la oferta de trabajo, no mostrarla en incion aspirante  ✔️
+-darle mas detalles a misPostulaciones.php en aspirante 🔀
+-hacer funcionar la busqueda en mostrarTodasOferta.php de  perfil empresa ✔️
+-revisar si en todos los puestos de trabajo esatan ordenados por fechas ✔️
+-en ingresar oferta poner un campo para la direccion ✔️
+-si se elimina una carrera hacer que los aspirantes y las ofertas que sean de la carrera que se elimino se oculten ✔️
+-poner un input para buscar por especialidad donde sea un select donde esos datos sean las especialidades de los aspirantes traido desde la base de datos ✔️
+-no se si en admin estadisticas en todas los aprobados tenga paginacion 🔀
+-validar correos duplicados en regsitro empresa ✔️
+-videos de como configurar el correo desde local https://www.youtube.com/watch?v=5NY603OX-eQ (leer los comentarios) ✔️
+-hacer otra funcion para recuperar ofertas en empresa ✔️
+-poner una tuerca para cambiar la contraseña en perfil aspirante ✔️
+-poner una tuerca para cambiar la contraseña en perfil empresa ✔️
+-cambiarle el nombre de bolsadetrabajo a BolsaDeEmpleo ✔️
+-validar las entradas de los inputs con un htmlspecialchars en php al momento de obtener el dato ✔️
+-poner un boton para eliminar la oferta en ingresarOferta.php (si le da a eliminar se ocultara la oferta) ✔️
+-en verOfertasConAspirantes si el aspirante ya esta aprobado cambiarle el fondo de gris a verde   ✔️
+-ponerle los nombre de cada aspirante en comentarios ✔️
+-ponerle los nombre de cada empresa en comentarios ✔️
+-hacer una pagina para ver todas las notificacion del aspirante ✔️
+-hacer que se actualice el estado de la notificacion cuando aprueban a un aspirante ✔️
+-pasar el parametro puesto por url en http://localhost:8080/bolsadeEmpleo/PERFILASPIRANTE/MISPOSTULACIONES/misPostulaciones.php ✔️
+-ver porque no se muestran las ofertas que ya se aprobaron en perfil empresa (supongo que es porque la oferta esta en estado 0 ) 🔀
+-eliminar el icono de la campana en todas las paginas menos en inicio y buscar y perfil aspirante ✔️
+-crear un boton de despostularme ✔️
+-poner la notificacion en empresa ✔️
+-mostrar el tipo de oferta por php en 'Ingresar oferta empresa'  ✔️
+-otro panel admin para ingresar el tipo de lugar e oferta ✔️
+-otro panel admin para ingresar el tipo horario de la oferta ✔️
+-mostrar en los buscadores de aspirante, el tipo de oferta por php ✔️
+-poner un boton en adimin para hacer la copia de seguridad (el tutorial esta en tik tok)✔️
+-//todo OJO para hacer la copia de seguridad asegurarse que en el equipo este la variable de entorno, osea en el cmd ❌
+-en la pagina de ver postolantes de la empresa (cuando esta en el telefon) mandar la url por nombre y no por id ✔️
+-borrar la foto de mi perfil reyescarvajal ✔️
+-hacer que REGISTRO/REGISTROASPIRANTE/REGISTRO2/registroAspirante2.php sea responsivo ✔️
+-cambiar en datos faltantes de aspirante el input que dice ('nombre de especialidad de esta carrera 'analista de datos') por algo mas entendible ✔️
+-usar el textare de las habilidades en lso datos faltantes de aspirante 🔀
+-ver porque no se puede eliminar una oferta de trabajo ✔️
+-validar los datos de los formularios tipo number, para que solo se ingresen number ✔️
+-validar si la cedula ya esta en la base de datos ✔️
+-arreglar semejante barbaridad en buscar, osea hacerlo con js ✔️
+-panel para ver todos los codigos de las empresas ✔️
+-cambiar la falta ortografia de 'Bacante' por Vacantes ✔️
+-seccion paraver todas las notificaciones en empresa ✔️
+-notificaciones en inicio empresa ✔️
+-mejorar el registro apirante , hacerlo con js para manejar las fotos ✔️
+-mejorar el buscar en perfil aspirante ✔️
+-revisar si cuando no pongo ninguna imagen en el registro empresa se pone una por defecto ✔️
+-ver porque no puedo entrar a ver el perfil de  empresa en admin ✔️
+-hacer que se pueda ver la imagen en los perfiles publicos de empresa y aspirante ✔️
+-hacer que funcione el "aprobado" en perfiles publicos aspirante (no se ve el boton) ✔️
+-en ver todas las notificaciones hacer que funcione el enlace de ver detalles✔️

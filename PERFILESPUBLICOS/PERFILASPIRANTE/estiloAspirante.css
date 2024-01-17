@@ -1,0 +1,47 @@
+.seccionPerfil{
+    position: relative;
+}
+.contenedorBotones{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    display: flex;
+    gap: 30px;
+}
+
+.inputAprobar{
+    width: 75px;
+    height: 40px;
+    background-color: #04EC64;
+    color: #424242;
+    border: 1px solid #424242;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.inputAprobar:hover{
+   background-color: #45ff93;
+    color: #424242;
+    border: 1px solid #424242;
+}
+.imprimir{
+    width: 75px;
+    height: 40px;
+}
+.imprimir img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    
+}
+
+
+@media screen and (max-width:570px) {
+    .seccionPerfil{
+        position: unset;
+    }
+    .contenedorBotones{
+        position: unset;
+        margin: 0 0 30px 20px;
+    }
+}

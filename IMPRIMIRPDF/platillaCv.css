@@ -1,0 +1,173 @@
+*{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+}
+main{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    color: #424242;
+    position: relative;
+}
+.portafolio{
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}
+
+
+/* //////////////////////////////////   PARTE IZUQIERDA     ///////////////////////////////////// */
+.contenedorIzquierda{
+    width: 30%;
+    border: 1px solid #b4b4b4;
+}
+
+/* LOGO */
+.contenedorLogo{
+    width: 150px;
+    margin: 0 auto;
+    margin-top: 5px;
+}
+.contenedorLogo img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* AVATAR */
+.contendorAvatar{
+    width: 125px;
+    height: 125px;
+    margin: 0 auto;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    background-color: rgb(199, 199, 199);
+    border-radius: 50%;
+
+}
+.contendorAvatar img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+
+/* CONTACTO */
+.contendorContacto{margin-bottom: 2rem;}
+.contendorContacto ul {
+    list-style: none;
+    padding: 0 0 0 5px;
+    overflow: hidden;
+}
+.contendorContacto ul li{
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+    display: flex;
+    gap: 0.6rem;
+    word-wrap: break-word;
+}
+
+
+/* IDIOMAS */
+.contenedorIdioma{
+    padding: 0 0 0 5px;
+    margin-bottom: 1.6rem;
+}
+.contenedorIdioma ul{
+    list-style: none;
+
+}
+
+/* REFERENCIAS */
+.contenedorReferencias{
+    padding: 0 5px;
+
+}
+.contenedorReferencias h5{
+    margin-bottom: 1rem;
+}
+.cartaReferencia{
+    line-height: 5px;
+}
+.ocupacionReferencia{
+    color: rgb(12, 173, 79);
+
+}
+
+
+
+
+
+/* //////////////////////////////////   PARTE DERECHA     ///////////////////////////////////// */
+.contendorDerecha{
+    /* padding-top: 3rem; */
+    padding-left: 1rem;
+}
+.contendorDerecha .estado{
+    color: #424242;
+    font-size: 1rem;
+}
+
+/* NOMBRE */
+.contendorDerecha h5{
+    color: rgb(15, 199, 91) ;
+    margin-bottom: 1rem;
+    
+}
+
+/* DETALLE */
+.contendorDerecha .contenedorDetalle{
+    margin-bottom: 2rem;
+}
+.contendorDerecha .contenedorDetalle p{
+    font-size: 0.9rem;
+}
+
+
+/* CONOCIMIENTO */
+.contendorConocimiento .contenedorCartas{
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 2rem;
+}
+.contendorConocimiento .contenedorCartas .carta{
+    padding: 5px 10px;
+    background-color: rgb(12, 173, 79);
+    border-radius: 3px;
+    border: 1px solid #424242;
+    color: #fff;
+}
+
+
+/* EXPERIENCIA */
+.contenedorExperiencia h4{
+    margin-bottom: 1rem;
+}
+.subContenedorExperiencia{
+    display: flex;
+    gap: .8rem;
+    flex-direction: column;
+}
+.experienciaProfecional{
+    line-height: 15px;
+}
+.experienciaProfecional .establecimiento{
+    color: rgb(12, 173, 79);
+}
+
+
+/* EDUCACION */
+.contenedorEducacion{
+    margin-top: 1rem;
+}
+.subContenedorEducacion{
+    display: flex;
+    gap: .8rem;
+    flex-direction: column;
+}
+.educacionProfecional{
+    line-height: 18px;
+}
+.educacionProfecional .especialidad{color: rgb(12, 173, 79);}

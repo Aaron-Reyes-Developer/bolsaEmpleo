@@ -1,0 +1,474 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+:root{
+    --colorPrincipal: #adadad;
+    --colorSecundario: #adadad;
+    --colorTexto: #424242;
+    --FuenteRoboto: 'Roboto', sans-serif;
+    --colorBoton: #04ec64;
+    --colorFooter: #274546;
+    --coloFondo: #D9D9D9;
+}
+
+body{
+    position: relative;
+}
+
+/* VER AVATAR */
+.subContenedorVerAvatar{
+    width: 100%; height: 100vh;
+    position: absolute;
+    background-color: #00000085;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.subContenedorVerAvatar img{
+    max-width: 350px;
+}
+.subContenedorVerAvatar .cerrar{
+    position: absolute;
+    top: 20px; right: 20px;
+    font-size: 2rem;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+
+
+
+.navbar{
+    height: 60px;
+    z-index: 1;
+}
+.navbar-brand img{
+    width: 150px;
+    height: 100%;
+    object-fit: contain;
+    
+}
+/* AVATAR */
+.lista-avatar-nav{
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--coloFondo) !important;
+}
+.iconoEnlace img{
+    width: 22px;
+}
+/* enlace avatar */
+.enlace-avatar{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+.enlace-avatar img{
+    width: 143%;
+    height: 143%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.navbar-nav{
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+
+/* MAIN */
+.main{
+    width: 100%;
+    min-height: calc(100vh - 65px);
+    height: auto;
+    background-color: var(--coloFondo);
+    padding: 0 5px ; ;
+}
+
+/* PERFIL */
+.seccionPerfil{
+    background-color: #ffffff;
+    border-radius: 5px;
+    width: 100%;
+    height: auto;
+    
+}
+.contenedorPortada{
+    width: 100%;
+    height: 250px;
+    position: relative;
+}
+.contenedorPortada img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* CONFIGURACION ICONO TUERCA*/
+.contenedorPortada .dropdown{
+    position: absolute;
+    right: 20px;
+    top: 10px;
+}
+.botonDown .iconoConfiguracion{
+    width: 50px;
+    height: 50px;
+} 
+.guardarModal{
+    background-color: var(--colorBoton);
+    color: var(--colorTexto);
+    border: 1px solid #424242;
+}
+.guardarModal:hover{
+    background-color: #03c554;
+    color: var(--colorTexto);
+    border: 1px solid #424242;
+}
+
+
+.contendorFotoPerfil{
+    width: 180px;
+    height: 180px;
+    border-radius: 50% ;
+    position: absolute;
+    bottom: -50px;
+    left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    /* overflow: hidden; */
+}
+.contendorFotoPerfil img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50% ;
+    
+}
+.editarAvatar{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    text-decoration: none;
+}
+
+
+/* DATOS PERFIL */
+.datosPerfil, .estadoPerfil{
+    padding-left: 20px;
+    color: var(--colorTexto);
+}
+.estadoPerfil{
+    display: inline-block;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    background-color: #00ff1a49;
+    width: 300px;
+    height: auto;
+    padding: 10px;
+}
+.estadoPerfil h4{
+    font-size: 1.3rem;
+}
+.estadoPerfil span{
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+.editarPerfil{
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.hr{
+    margin: 0 auto;
+    width: 97%;
+
+}
+
+
+/* PUESTOS OFERTADOS */
+.puestos_ofertados{
+    margin-top: 20px;
+    color: var(--colorTexto);
+}
+.puestos_ofertados h3{
+    font-weight: 400;
+    margin-left: 20px;
+    color: var(--colorTexto);
+}
+.puestos_ofertados a{
+   color: var(--colorTexto);
+   text-decoration: none;
+   font-weight: bolder;
+}
+.mostrarTodasLasOfertas{
+    color: #118fd8 !important;
+    font-size: 15px;
+    text-decoration: underline !important; 
+    font-weight: 100 !important; 
+}
+
+/* OFERTAS */
+.contenedorOfertas{
+    width: 95%;
+    height: auto;
+    margin: 30px auto;
+    margin-bottom: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    
+}
+.ofertaCarta{
+    background-color: #DFDFDF;
+    padding: 10px;
+    margin-bottom: 50px;
+    position: relative;
+}
+.ofertaCarta h4{
+    font-weight: 400;
+    
+}
+.ofertaCarta span{
+    margin: 10px 0;
+}
+.ofertaCarta .verDetalles{
+    color: #118fd8;
+    text-decoration: underline;
+    font-weight: 100;
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+}
+.ofertaCarta .editar{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    text-decoration: underline;
+    font-weight: 100;
+    color: #118fd8;
+}
+
+/* ACERCA DE  */
+.seccionAcerdaDe{
+    background-color: #FFF;
+    border-radius: 5px;
+    padding-top: 20px;
+    padding: 20px;
+    margin-top: 10px;
+    color: var(--colorTexto);
+}
+.acerdaDe h3, .personalEmpresa h3{
+    font-weight: 400;
+}
+.acerdaDe p{
+    width: 50%;
+    margin-bottom: 50px;
+}
+
+/* ENLACES DE EDITAR */
+.editarDescripcion{
+    font-size: 20px;
+    text-decoration: none;
+
+}
+
+
+/* INFORMACION EMPRESA */
+.informacionEmpresa{
+    margin-top: 10px;
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    color: var(--colorTexto);
+    
+}
+.informacionEmpresa h3{ font-weight: 400;   }
+
+.contenedorInformacionEmpresa{
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+/* PERSONAL EMPRESA */
+.personalEmpresa{
+    margin-bottom: 3rem;
+}
+
+.totalPuestosAprobados{
+    font-size: 2rem;
+    /* font-weight: 500; */
+    color: var(--colorTexto);
+    text-decoration: none;
+}
+.totalPuestosAprobados:hover{
+   color: #118fd8;
+    
+}
+/* INFORMACION DE LA EMPRESA AÑOS/SERVICIOS/MAPS */
+.contenedorInformacionEmpresa{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+}
+
+
+
+/* AÑOS */
+.años{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.editarAntiguedad{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    text-decoration: none;
+}
+.contenedorImagenReloj{
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right:10px;
+}
+.contenedorImagenReloj img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.textoAño{
+    display: inline-block;
+}
+.textoAño h3{
+    margin: 0;
+}
+
+/* TEXTO */
+.texto{
+    position: relative;
+    padding: 20px;
+    border-left: 1px solid #424242 ;
+    border-right: 1px solid #424242 ;
+}
+.textoServicio{
+    margin: 0;
+}
+
+/* MAPS */
+.maps{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.maps iframe{
+    width: 250px; 
+    height: 150px;
+    
+}
+
+
+/* LINK */
+.linkEmpresa{
+    margin-top: 10px;
+    height: 200px;
+    background-color: bisque;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-size: 27px;
+    color: var(--colorTexto);
+    font-weight: 100;
+}
+.editarLink{
+    font-size: 20px;
+    text-decoration: none;
+}
+
+/* MODAL */
+.botonModalGuardar{
+    background-color:  var(--colorBoton) !important;
+    border: 1px solid #424242;
+}
+
+
+
+/* LINK MEDIA*/
+@media screen and (max-width: 1050px) {
+    .linkEmpresa{
+        flex-direction: column;
+    }
+    .editarLink, .visitraMiPagina, .linkDirecto{
+        font-size: 1.2rem;
+    }
+    .parrafoAcerdaDe{
+        width: 100% !important;
+        
+    }
+}
+
+
+/* HEADER BOOSTRAP */
+@media screen and (max-width: 991px) {
+
+    /* se mueve el navar y se sale de lugar, por eso le pongo un margin top de -10 */
+    .container-fluid{
+        margin-top: -10px;
+        background-color: #fdfdfd;
+    }
+
+    .navbar-nav{
+        padding: 0 2rem;
+        width: 100%;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .lista-avatar-nav{
+        margin-left: -1rem;
+    }
+    
+}
+
+/* ofertas */
+@media screen and (max-width: 700px) {
+    .contenedorOfertas{
+        gap: 5px;
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+
+    .ofertaCarta{
+       margin-bottom: 20px;
+    }
+    
+}

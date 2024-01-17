@@ -1,0 +1,184 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+:root{
+    --colorPrincipal: #adadad;
+    --colorSecundario: #adadad;
+    --colorTexto: #424242;
+    --FuenteRoboto: 'Roboto', sans-serif;
+    --colorBoton: #04ec64;
+    --colorFooter: #274546;
+    --coloFondo: #D9D9D9;
+    --fondoOferta: #F0F0F0;
+}
+
+body{
+    position: relative;
+}
+
+/* MODAL AGREGAR CODIGO EMPRESA */
+.subContenedorAgregarCodigoEmpresa{
+    top: 0;
+    z-index: 1;
+    width: 100%; height: 100vh;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.534);
+    /* color: #fff; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.formularioCodigoEmpresa{
+    min-width: 350px;
+    position: relative;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 7px;
+    color: #424242;
+}
+.formularioCodigoEmpresa h2{
+    margin-top: 30px;
+}
+.formularioCodigoEmpresa .cerrar{
+    position: absolute;
+    font-size: 1.5rem;
+    top: 20px; right: 30px;
+    cursor: pointer;
+}
+
+
+
+/* MAIN */
+.main{
+    width: 100%;
+   
+}
+
+/* SECCION DATOS TOTALES */
+.seccionTotalBd{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px, 1fr));
+    gap: 10px;
+    margin-bottom: 50px;
+}
+.subcontenedorTotal{
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
+    text-align: center;
+    font-weight: 100;
+}
+.subcontenedorTotal h2{
+    font-size: 1.5rem;
+    font-weight: 100;
+}
+.subcontenedorTotal span{
+    font-size: 3.5rem;
+    margin: 0 auto;
+}
+.contenedorTotalAspirantes{ background-color: #04EC64;  }
+.contenedorTotalEmpresa{    background-color: #28FF81;  }
+.contenedorTotalOferta{     background-color: #82FFB6;  }
+
+
+/* SECCION COMENTARIOS (este estilo tambien funciona para los aspirantes que encontraron trabajo)*/
+.seccionComentarios{
+    color: #424242;
+    margin-bottom: 50px;
+    
+}
+.seccionComentarios h2{
+    font-weight: 100;
+    font-size: 1.2rem;
+}
+
+/* contenedor con scroll */
+.contenedorComentarios{
+    width: 100%;
+    height: auto;
+    max-height: 30rem;
+    background-color: #F2F2F2;
+    overflow-y: scroll;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    
+}
+
+/* carta aspirante */
+.cartaAspirante{
+    width: 100%;
+    display: flex;
+    position: relative;
+    gap: 10px;
+}
+.avatar{
+    width: 70px;
+    height: 70px;
+    background-color: var(--colorPrincipal);
+    border-radius: 50%;
+}
+.avatar img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.datos h3{
+    font-size: 1.2rem;
+    margin: 0;
+}
+.datos span{
+    font-size: .7rem;
+    padding: 0;
+}
+.cartaAspirante a{
+    font-size: 0.8rem;
+    position: absolute;
+    right: 10px;
+    bottom: 0;
+}
+
+
+/* ECNOTRE EMPLEO FOTO */
+.fotoEncontreEmpleo{
+    width: 100%;
+    height: calc(90vh - 60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contenedorFotoEmpleo {
+    width: 100%;
+    height: 100%;
+}
+
+.contenedorFotoEmpleo img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    
+}
+
+
+
+
+/* SECCION CODIGOS */
+.seccionCodigos{
+    width: 100%; height: auto;
+    overflow: auto;
+}
+.seccionCodigos h2{
+    font-weight: 100;
+    font-size: 1.7rem;
+}
+

@@ -1,0 +1,142 @@
+:root{
+    --colorPrincipal: #adadad;
+    --colorSecundario: #adadad;
+    --colorTexto: #424242;
+    --FuenteRoboto: 'Roboto', sans-serif;
+    --colorBoton: #04ec64;
+    --colorCuadrosFondo: #0FD762;
+    --colorFooter: #274546;
+}
+.body{
+    background-color:  #f4f4ec;
+}
+
+/* HEADER */
+.header{
+    background-color: #fff;
+}
+.navbar-brand img{
+    width: 200px;
+    height: 80px;
+    object-fit: contain;
+}
+
+/* MAIN */
+.contenedor-main{
+    width: 100%;
+    min-height: calc(100vh - 107px);
+    height: auto;
+    /* background-color: brown; */
+}
+.seccion-formulario{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* IMAGEN */
+.contenedor-imagen-progreso{
+    width: 50%;
+    min-height: 80px;
+    margin: 0;
+    /* background-color: #adadad; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+.contenedor-imagen-progreso img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    
+
+}
+
+/* AVATAR */
+.contenedor-avatar{ 
+    margin-bottom: 10px;    
+}
+.contenedorImagenAvatar{
+    min-width: 200px; height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contenedorImagenAvatar img{
+    width: 100px; height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    background-color: #424242;
+
+}
+.boton-imagen{
+    width: 70%;
+    margin: 0   auto;
+    background-color: var(--colorBoton) !important;
+    border: solid 1px var(--colorTexto) !important;
+    color: var(--colorTexto) !important;
+}
+
+/* FORMULARIO */
+.contenedor-formulario{
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+}
+.contenedor-formulario h1{
+    text-align: center;
+    color: var(--colorTexto);
+    font-weight: 100 !important;
+}
+/* text area */
+.texarea{
+    height: 300px !important;
+    margin-bottom: 16px;
+}
+
+/* BOTON CONTINUAR */
+.boton-enviar-login{
+    background-color: var(--colorBoton) !important;
+    border: 1px solid #424242 !important;
+    color: #424242;
+    width: 100%;
+    margin-top: 20px;
+    transition: 0.2s ease-in-out all;
+}
+.boton-enviar-login:hover{
+    background-color: var(--colorCuadrosFondo) !important;
+    border: 1px solid #424242 !important;
+    color: #424242;
+    border-radius: 20px;
+}
+
+
+
+/* modal Maps */
+
+.modal-content{
+    width: 150%;
+    
+}
+@media screen and (max-width:1050px) {
+    .contenedor-imagen-progreso{    width: 70%; }
+    .modal-content{
+        width: 100%;
+        
+    }
+}
+
+@media screen and (max-width:800px) {
+    .contenedor-imagen-progreso{    width: 97%; }
+}
+
+@media screen and (max-width:600px) {
+    .boton-imagen{
+        width: 90%;
+        
+    }
+    
+}

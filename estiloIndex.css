@@ -1,0 +1,372 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+:root{
+    --colorPrincipal: rgb(31 41 55);
+    --colorTexto: #DCDCDC;
+    --FuentePrincipal: 'Julius Sans One', sans-serif;
+    --FuenteSecundaria: 'JetBrains Mono', monospace;;
+    --colorSecundario: #04ec64;
+    --colorFooter: #274546;
+}
+
+
+h1,h2,h3,h4,h5{
+    font-family: var(--FuentePrincipal);
+    color: var(--colorTexto);
+    font-size: 20px;
+    font-weight: 800;
+
+}
+
+p,span,button,li,a{
+    font-family: var(--FuenteSecundaria);
+    color: var(--colorTexto);
+    font-size: 13px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--colorPrincipal);
+}
+
+
+.main{
+    max-width: 730px;
+    transition: 0.3s ease-in-out all;
+    /* transform: translateX(-200%); */
+}
+
+
+/* ///////////////////////////////////////////////////      HEADER      /////////////////////////////////////////////////// */
+.header{
+    max-width: 730px;
+    width: 100%;
+    height: 75px;
+    position: fixed;
+    background-color: var(--colorPrincipal);
+    z-index: 1;
+    transition: 0.3s ease-in-out all;
+}
+.header nav{
+    padding: 0 5px;
+    width: 100%; height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header nav img{
+    width: 150px;
+    height: 70px;
+    object-fit: contain;
+}
+
+/* boton ingresar bolsa de empoleo */
+.botonAccion{
+    background-color: var(--colorSecundario);
+    padding: 10px 20px;
+    color: #424242;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 7px;
+    border: 1px solid #000;
+    transition: 0.1s ease-in all;
+}
+.botonAccion:hover{
+    background-color: #074922;
+    color: #fff;
+    transform: scale(1.05);
+    border: 1px solid #fff;
+
+}
+
+
+
+/* ///////////////////////////////////////////////////      PORTADA      /////////////////////////////////////////////////// */
+.seccionPortada{
+    margin-top: 75px;
+    width: 100%;
+    min-height: 350px;
+    background-image: url('./imagenes/fondo\ portada.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    padding: 20px;
+    padding-top: 30px;
+    margin-bottom: 4rem;
+}
+.contenedorTexto{
+    max-width: 400px;
+}
+.contenedorTexto h1{
+    font-size: 2rem;
+    color: #fff;
+}
+.contenedorTexto p{
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 2rem;
+
+}
+.botonAccionPortada{
+    display: block;
+    white-space: nowrap;
+    border-right: 4px solid ;
+    width: 25ch;
+    animation: typing 2s steps(25), blink .5s infinite step-end alternate;
+    overflow: hidden;
+}
+
+
+/* ///////////////////////////////////////////////////      QUIENES SOMOS      /////////////////////////////////////////////////// */
+.seccionQuienesSomos{
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 4rem;
+
+}
+.seccionQuienesSomos > div{
+    width: 50%;
+}
+
+
+
+
+/* ///////////////////////////////////////////////////      EMPRESAS VINCULADAS      /////////////////////////////////////////////////// */
+.seccionEmpresas{
+    width: 100%;
+    margin-bottom: 4rem;
+}
+.seccionEmpresas h2{
+    text-align: center;
+}
+.contenedorEmpresas{
+    width: 100%;
+    height: 100px;
+    border: 1px solid #ccc; 
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.contenedorEmpresas .carta{
+    width: 70px;
+    height: 70px;
+    background-color: #ccc;
+}
+.contenedorEmpresas .carta img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* ///////////////////////////////////////////////////      QUIENES PUEDEN POSTULAR      /////////////////////////////////////////////////// */
+.seccionQuienesPostulan{
+    width: 100%;
+    margin-bottom: 4rem;
+}
+.seccionQuienesPostulan h2{
+    margin-bottom: 1rem;
+}
+.contenedorCartaPostulan{
+    width: 100%;
+    height: auto;
+    display: flex;
+    gap: 2rem;
+}
+.contenedorCartaPostulan .carta{
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+
+
+
+/* ///////////////////////////////////////////////////      TIPOS DE OFERTAS      /////////////////////////////////////////////////// */
+.seccionTiposOfertas{
+    width: 100%;
+    height: auto;
+    margin-bottom: 4rem;
+}
+.seccionTiposOfertas h2{
+    margin-bottom: 2rem;
+}
+
+.flechaOferta{
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    transform: scale(0);
+    transition: 0.2s ease-in-out all;
+}
+
+.contenedorTiposOfertas{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 1.5rem;
+}
+.contenedorTiposOfertas .carta{
+    border: 2px solid #666666;
+    border-radius: 7px;
+    padding: 10px;
+    text-decoration: none;
+    transition: 0.2s ease-in-out all;
+    position: relative;
+}
+.contenedorTiposOfertas .carta h3{
+    font-size: 16px;
+    font-weight: bolder;
+}
+.carta .ofertasEmpleo{
+    color: var(--colorSecundario);
+
+}
+.contenedorTiposOfertas .carta:hover{
+    transform: translateY(-5px);
+    border: 2px solid var(--colorSecundario);
+}
+
+.contenedorTiposOfertas .carta:hover .flechaOferta{
+    display: unset;
+    transform: scale(1);
+}
+
+
+
+
+/* ///////////////////////////////////////////////////     BOTON POSTULARME      /////////////////////////////////////////////////// */
+.seccionBotonPostularme{
+    width: 100%;
+    margin-bottom: 4rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 2rem;
+    /* flex-wrap: wrap; */
+}
+.seccionBotonPostularme hr{
+    border: 1px dotted #ccc;
+    width: 100%;
+}
+.seccionBotonPostularme a{
+    min-width: 150px;
+}
+
+
+
+/* ///////////////////////////////////////////////////      COMO POSTULARME      /////////////////////////////////////////////////// */
+.seccionComoPostularme{
+    width: 100%;
+    margin-bottom: 4rem;
+}
+.seccionComoPostularme .irLogin{
+    color: var(--colorSecundario);
+}
+.seccionComoPostularme .fraseOpaca{
+    color: #555555;
+}
+
+
+
+/* ///////////////////////////////////////////////////      PUBLICIDAD      /////////////////////////////////////////////////// */
+.seccionPublicidad{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 4rem;
+}
+.seccionPublicidad > div{
+    width: 50%;
+}
+.seccionPublicidad .cartaImagen img{
+    border-radius: 7px;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: 0.1s ease-in all;
+}
+.seccionPublicidad .cartaImagen img:hover{
+    transform: scale(1.05);
+}
+
+
+
+/* ///////////////////////////////////////////////////      FONDO GRADUADO      /////////////////////////////////////////////////// */
+.contenedorFondoGraduacion{
+    width: 100%;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contenedorFondoGraduacion img{
+    width: 100%;
+    object-fit: contain;
+}
+
+
+
+
+
+
+
+/* ///////////////////////////////////////////////////      FOOTER      /////////////////////////////////////////////////// */
+.footer{
+    width: 100%;
+}
+footer div{
+    color: #fff;
+}
+
+
+
+/* ///////////////////////////////////////////////////      @media      /////////////////////////////////////////////////// */
+
+@media screen and (max-width:500px) {
+
+    /* MAIN */
+    .main{
+       padding: 0 10px;
+    }
+
+    /* hacer columnas */
+    .contenedorCartaPostulan, .seccionQuienesSomos{
+        flex-direction: column;
+    }
+    .seccionQuienesSomos > div{
+        width: 100%;
+    }
+    .seccionPublicidad{
+        flex-direction: column-reverse;
+    }
+    .contenedorTiposOfertas{
+        grid-template-columns: 1fr;
+    }
+
+    /* BOTON ACCION HEADER */
+    .botonAccionHeader{
+        display: none;
+    }
+}
+
+
+
+
+/* ///////////////////////////////////////////////////      ANIMACIONES      /////////////////////////////////////////////////// */
+@keyframes typing {
+    from{ width: 0;}
+}
+
+@keyframes blink {
+    50%{border: transparent;}
+}

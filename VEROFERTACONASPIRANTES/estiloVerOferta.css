@@ -1,0 +1,240 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+:root{
+    --colorPrincipal: #adadad;
+    --colorSecundario: #adadad;
+    --colorTexto: #424242;
+    --FuenteRoboto: 'Roboto', sans-serif;
+    --colorBoton: #04ec64;
+    --colorFooter: #274546;
+    --coloFondo: #D9D9D9;
+    --fondoOferta: #F0F0F0;
+}
+
+
+
+/* el nadvar mide de alto 107px */
+.navbar{
+    height: 60px;
+    z-index: 1;
+}
+.navbar-brand img{
+    width: 150px;
+    height: 100%;
+    object-fit: contain;
+    
+}
+/* AVATAR */
+.lista-avatar-nav{
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--coloFondo) !important;
+}
+.iconoEnlace img{
+    width: 22px;
+}
+/* enlace avatar */
+.enlace-avatar{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+.enlace-avatar img{
+    width: 143%;
+    height: 143%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.navbar-nav{
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+
+.main{
+    background-color: var(--coloFondo);
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+}
+.main section{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    color: var(--colorTexto);
+}
+
+/* seccion detalle */
+.seccionDetalle h2, .seccionPostulantes h2{
+    font-size: 2.5rem;
+    font-weight: 100;
+}
+/* fechas */
+.contenedoFechas{
+    width: 100%;
+    display: flex;
+    gap: 25px;
+    font-size: 14px;
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+.Ubicacion img{
+    width: 20px;
+    height: 20px;
+}
+/* detalles */
+.detalles{
+    width: 100%;
+    min-height: 35vh;
+    
+}
+.detalles h5{
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+.subContenedorDetalles > div{margin-bottom: 20px;}
+.subContenedorDetalles ul{
+    padding: 0;
+    list-style: none;
+}
+
+
+
+/* postulantes */
+.seccionPostulantes{
+    background-color: #fff;
+}
+.contenedorPostulantes{
+    width: 100%;
+    min-height: 35vh;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+/* carta */
+.postulante{
+    display: flex;
+    padding: 10px;
+    gap: 10px;
+    background-color: var(--fondoOferta);
+    border-radius: 5px;
+    min-width: 400px;
+    width: 30%;
+}
+.aprobado{
+    background-color: #22f77a;
+}
+.contenedorImagenPostulante{
+    width: 60px;
+    height: 60px;
+    background-color: #797979;
+    border-radius: 50%;
+}
+.contenedorImagenPostulante img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.informacionPostulante ul{
+    padding-left: 5px;
+    list-style: none;
+    margin-bottom: 0;
+}
+
+
+
+
+
+
+
+
+
+
+/* Estilo scroll */
+.body::-webkit-scrollbar {-webkit-appearance: none;}
+
+.body::-webkit-scrollbar:vertical {width:10px;}
+
+.body::-webkit-scrollbar-button:increment,.body::-webkit-scrollbar-button {display: none;} 
+
+.body::-webkit-scrollbar:horizontal {height: 10px;}
+
+.body::-webkit-scrollbar-thumb {
+    background-color: #797979;
+    border-radius: 20px;
+    border: 2px solid #f1f2f3;
+}
+
+.body::-webkit-scrollbar-track {border-radius: 10px;  }
+
+
+
+/* HEADER BOOSTRAP */
+@media screen and (max-width: 991px) {
+
+    /* se mueve el navar y se sale de lugar, por eso le pongo un margin top de -10 */
+    .container-fluid{
+        margin-top: -10px;
+        background-color: #fdfdfd;
+    }
+
+    .navbar-nav{
+        padding: 0 2rem;
+        width: 100%;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .lista-avatar-nav{  margin-left: -1rem; }
+    
+}
+
+
+@media screen and (max-width: 650px) {
+    .contenedoFechas{
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+
+/* CARTA */
+@media screen and (max-width: 470px) {
+
+    /* carta */
+    .postulante{
+        min-width: unset;
+        width: 100%;
+    }
+
+    /* avatar */
+    .contenedorImagenPostulante{
+        min-width: 60px;
+        min-height: 60px;
+        background-color: #797979;
+        border-radius: 50%;
+    }
+    .postulante{
+        font-size: 15px;
+    }
+    
+}

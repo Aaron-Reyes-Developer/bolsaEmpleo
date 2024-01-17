@@ -1,0 +1,70 @@
+:root{
+    --colorPrincipal: #adadad;
+    --colorSecundario: #adadad;
+    --colorTexto: #424242;
+    --FuenteRoboto: 'Roboto', sans-serif;
+    --colorBoton: #04ec64;
+    --colorFooter: #274546;
+    --coloFondo: #D9D9D9;
+}
+
+/* MAIN */
+.seccionMain{
+    width: 100%;
+    height: calc(100vh - 62px);
+    background-color: var(--coloFondo);
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    padding: 8px;
+}
+
+/* SECCIONES */
+.seccionMain > section{
+    width: 100%;
+    height: 50vh;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 0 auto;
+    display: grid;
+    grid-auto-flow: column;
+    gap: 1rem;
+    padding: 1rem;
+    overflow-y: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+}
+
+/* Aprobados */
+.SeccionMisPostulaciones > .carta{
+    background-color: #ffffff;
+    border: 1px solid #424242;
+}
+
+/* CARTA GLOBAL */
+.carta{
+    width: 300px;
+    height: 100%;
+    background-color: #8cfca4;
+    padding: 5px;
+    color: var(--colorTexto);
+    position: relative;
+}
+.carta p{
+    font-size: 14px;
+}
+.carta li{
+    list-style: none;
+}
+.carta span{
+    font-size: 13px;
+}
+.carta a{
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+}
+
+
+
