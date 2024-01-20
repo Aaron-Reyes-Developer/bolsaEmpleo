@@ -261,6 +261,8 @@ $recorrerFotoEmpresa = mysqli_fetch_array($respuestaFotoEmpresa);
                         }
                         ?>
 
+                        <li><b>Plazas: </b> <?php echo $recorrerOferta['plaza'] ?> </li>
+
                     </ul>
 
                 </div>

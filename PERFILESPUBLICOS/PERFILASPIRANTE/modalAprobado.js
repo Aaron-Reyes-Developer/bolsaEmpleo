@@ -1,8 +1,4 @@
-//ESTE MODAL SE EJECUTA AUTOMATICAMENTE CUNADO SE LLAMA A ESTE DOCUMENTO
 
-//esta funcion extrae el parametro 'accept' 
-//(cunado se apreta el boton 'Regresar') 
-//y hace una condicion para ver si se apreto el boton
 
 ( async () => { 
 

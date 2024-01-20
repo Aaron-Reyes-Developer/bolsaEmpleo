@@ -40,6 +40,10 @@ $queryDatosEstudiantes = "call datosMainEstudiante('$id_aspirante')";
 $resultadoDatosEstudiantes = mysqli_query($conn, $queryDatosEstudiantes);
 
 
+
+
+
+
 // SI NO SE ENCONTRO EL ASPIRANTE SE MANDA UN 404
 if (mysqli_num_rows($resultadoDatosEstudiantes) <= 0) {
     include('./error404.html');
@@ -280,9 +284,35 @@ if (isset($_POST['aprobar'])) {
 
             </div>
 
-            <!-- IMPRIMIR / APROBAR -->
+
+            <!-- GUARDAR / IMPRIMIR / APROBAR -->
             <div class="contenedorBotones">
 
+                <div class="contenedorGuardar">
+
+                    <?php
+                    // query para saber si el aspirante esta guardado
+                    $queryApiranteGuardado = mysqli_query($conn, "SELECT id_estudiante_guardado FROM estudiantes_guardados WHERE fk_id_usuario_estudiante = $id_aspirante AND fk_id_oferta_trabajo  = $id_oferta");
+
+                    // entra si el aspirante esta guardaro
+                    if (mysqli_num_rows($queryApiranteGuardado) >= 1) {
+                    ?>
+
+                        <img id="imagenDesguardar" onclick="desguardarAspirante(<?php echo $id_aspirante ?>, <?php echo $id_oferta ?>)" src="../../imagenes/Iconos/desguadar.webp" width="40px" alt="" title="Eliminar Aspirante">
+
+                    <?php
+                    } else {
+                    ?>
+                        <img id="imagenGuardar" onclick="guardarAspirante(<?php echo $id_aspirante ?>, <?php echo $id_oferta ?>)" src="../../imagenes/Iconos/guardar.webp" width="40px" alt="" title="Guardar Aspirante">
+
+                    <?php
+                    }
+                    ?>
+
+                </div>
+
+
+                <!-- APROBAR -->
                 <?php
                 if (isset($id_oferta)) {
 
@@ -299,18 +329,18 @@ if (isset($_POST['aprobar'])) {
                         </form>
                 <?php
                     } else {
-                        echo "Aprobado, Ponte en contacto con el aspirante";
+                        echo "<div class='contenedorAprobado'>Aprobado, Ponte en contacto con el aspirante</div>";
                     }
                 }
-
-
                 ?>
+
                 <div class="aprobar imprimir">
-                    <a href="../../IMPRIMIRPDF/plantillaCv.php?id_aspirante=<?php echo $id_aspirante ?>" Target="_blank"><img src="../../imagenes/Iconos/imprimir.png" alt=""></a>
+                    <a href="../../IMPRIMIRPDF/plantillaCv.php?id_aspirante=<?php echo $id_aspirante ?>" Target="_blank"><img src="../../imagenes/Iconos/imprimir.png" alt="" title="Imprimir Cv"></a>
                 </div>
 
 
             </div>
+
 
         </section>
 
@@ -587,6 +617,11 @@ if (isset($_POST['aprobar'])) {
     <!-- JS LIBRERIA ANIMACIONES -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
+    <!-- LIBRERIA ALERTA -->
+    <script src="./modalGuardado.js"></script>
+    <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+
+
     <script>
         AOS.init();
 
@@ -616,6 +651,71 @@ if (isset($_POST['aprobar'])) {
 
             const mostrarAvatar = document.getElementById('contenedorVerAvatar')
             mostrarAvatar.innerHTML = ''
+        }
+
+        //guardar el aspirante
+        const guardarAspirante = (id_aspirante, id_oferta) => {
+
+            let imagenGuardar = document.getElementById('imagenGuardar')
+
+
+            let FD = new FormData()
+            FD.append('id_aspirante', id_aspirante)
+            FD.append('id_oferta', id_oferta)
+
+
+            fetch('./queryGuardarAspirante.php', {
+                    method: 'POST',
+                    body: FD
+                })
+                .then(res => res.json())
+                .then(data => {
+
+                    if (data.mensaje === 'ok') {
+
+                        modalGuardado('Guardado Correctamente')
+                        imagenGuardar.src = "../../imagenes/Iconos/desguadar.webp"
+                        setTimeout(() => {
+                            window.location.reload()
+                        }, 1500)
+
+                    }
+
+                })
+
+
+        }
+
+
+        //guardar el aspirante
+        const desguardarAspirante = (id_aspirante, id_oferta) => {
+
+            let imagenDesguardar = document.getElementById('imagenDesguardar')
+
+
+            let FD = new FormData()
+            FD.append('id_aspirante', id_aspirante)
+            FD.append('id_oferta', id_oferta)
+
+
+            fetch('./queryDesguardarAspirante.php', {
+                    method: 'POST',
+                    body: FD
+                })
+                .then(res => res.json())
+                .then(data => {
+
+                    if (data.mensaje === 'ok') {
+                        modalGuardado('Eliminado Correctamente')
+                        imagenDesguardar.src = "../../imagenes/Iconos/guardar.webp"
+                        setTimeout(() => {
+                            window.location.reload()
+                        }, 1500)
+                    }
+
+                })
+
+
         }
 
         //

@@ -245,6 +245,7 @@ if (isset($_REQUEST['eliminar_postulacion'])) {
 
             <hr>
 
+
             <!-- CONTENEDOR DATOS PRINCIPALES -->
             <div class="contenedoFechas">
 
@@ -349,6 +350,9 @@ if (isset($_REQUEST['eliminar_postulacion'])) {
                         <?php
                         }
                         ?>
+
+                        <li><b>Plazas: </b> <?php echo $recorrerOferta['plaza'] ?></li>
+
 
                     </ul>
 

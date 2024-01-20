@@ -100,6 +100,13 @@ $queryCarreras = mysqli_query($conn, "SELECT * FROM carreras WHERE estado = 1");
                 </div>
 
 
+                <!-- NOMBRE PUESTO -->
+                <div class="mb-5">
+                    <label for="plazasTrabajo" class="form-label">Plazas de trabajo*</label>
+                    <input type="number" class="form-control input" name="plazasTrabajo" list="datalistOptions" id="plazasTrabajo" placeholder="Plazas de trabajo..." value="<?php if (isset($recorrerOferta)) echo $recorrerOferta['plaza'] ?>" required>
+                </div>
+
+
                 <!-- PRECIO -->
                 <div class="mb-5">
                     <label for="precio" class="form-label">Sueldo Mensual aproximado</label>
@@ -233,6 +240,7 @@ $queryCarreras = mysqli_query($conn, "SELECT * FROM carreras WHERE estado = 1");
                     <textarea class="form-control" name="detalle_empleo" id="detalle_empleo" rows="7" required><?php if (isset($recorrerOferta)) echo $recorrerOferta['detalle'] ?></textarea>
                 </div>
 
+
                 <!-- REQUISITOS -->
                 <div class="mb-5" id="contenedorRequisitos" data-n="1">
 
@@ -263,8 +271,10 @@ $queryCarreras = mysqli_query($conn, "SELECT * FROM carreras WHERE estado = 1");
 
                 </div>
 
+
                 <!-- BOTON AGREGAR MAS -->
                 <?php
+
 
                 // entra si no existe la edicion
                 if (!isset($recorrerOferta)) {
@@ -319,6 +329,7 @@ $queryCarreras = mysqli_query($conn, "SELECT * FROM carreras WHERE estado = 1");
                 <div class="mb-3">
                     <input type="submit" value="Guardar" class="form-control input botonGuardar" name="guardar">
                 </div>
+
 
                 <!-- ELIMINAR -->
                 <?php
@@ -415,6 +426,8 @@ $queryCarreras = mysqli_query($conn, "SELECT * FROM carreras WHERE estado = 1");
                 })
                 .then(res => res.json())
                 .then(e => {
+
+
 
                     if (e.mensaje !== 'ok') {
                         alertaPersonalizada('ERROR', 'error')

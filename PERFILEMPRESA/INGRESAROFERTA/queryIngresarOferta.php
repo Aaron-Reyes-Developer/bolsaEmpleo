@@ -28,6 +28,7 @@ include("../../conexion.php");
 // DATOS 
 $id_oferta = $_POST['id_oferta'];
 $nombrePuesto = htmlspecialchars($_POST['nombrePuesto']);
+$plaza = htmlspecialchars($_POST['plazasTrabajo']);
 $precio = htmlspecialchars($_POST['precio']);
 $ubicacion_empleo = htmlspecialchars($_POST['ubicacion_empleo']);
 $tareas_realizar = htmlspecialchars($_POST['tareas_realizar']);
@@ -45,11 +46,11 @@ if ($id_oferta == 0) {
 
     // INGRESAR LOS DATOS A LA BASE DE DATOS
     $queryIngresar = "INSERT INTO oferta_trabajo 
-    (puesto, precio, ubicacion_empleo, tareas_realizar, 
+    (puesto, plaza,precio, ubicacion_empleo, tareas_realizar, 
     detalle, fk_id_horario  ,fk_id_tipo_oferta , fk_id_tipo_lugar_oferta , 
     fk_id_carrera , fk_id_usuario_empresa ) 
     VALUES 
-    ('$nombrePuesto', '$precio', 
+    ('$nombrePuesto', '$plaza','$precio', 
     '$ubicacion_empleo', '$tareas_realizar', 
     '$detalle_empleo', '$horario' ,
     '$tipo_empleo', '$tipo_lugar_oferta',  '$tipo_carrera'
@@ -61,6 +62,7 @@ if ($id_oferta == 0) {
     $queryIngresar = " UPDATE oferta_trabajo 
     SET 
     puesto = '$nombrePuesto' ,
+    plaza = '$plaza',
     precio = '$precio',
     ubicacion_empleo = '$ubicacion_empleo',
     tareas_realizar = '$tareas_realizar',
@@ -71,9 +73,6 @@ if ($id_oferta == 0) {
     fk_id_carrera = '$tipo_carrera'
     WHERE id_oferta_trabajo = $id_oferta ";
 }
-
-
-
 
 
 
@@ -105,17 +104,30 @@ if ($respuesta) {
         }
 
         //
-    } else { // editar datos
+    } else { ///////////////////////////////////     LOGICA PARA ACTUALIZAR LOS REQUISITOS ///////////////////////////
 
 
-        for ($i = 0; $i < $totalRequisitos; $i++) {
 
-            $keyRequisito = "requisito" . $i + 1;
+
+
+        $contador = 0;
+        $queryRequisito = mysqli_query($conn, "SELECT id_requisito FROM requisitos WHERE fk_id_oferta_trabajo = $id_oferta ");
+
+        while ($recorrerRequisito = mysqli_fetch_array($queryRequisito)) {
+
+            $contador += 1;
+
+            $keyRequisito = "requisito" . $contador;
 
             $detalle = $_POST[$keyRequisito];
 
+
+            $id_requisito = $recorrerRequisito['id_requisito'];
+
             $queryIngresarRequisito = mysqli_query($conn, "UPDATE requisitos 
-            SET detalle = '$detalle' WHERE fk_id_oferta_trabajo = $id_oferta ");
+            SET detalle = '$detalle' WHERE id_requisito = '$id_requisito'  ");
+            while (mysqli_next_result($conn)) {;
+            }
         }
     }
 
