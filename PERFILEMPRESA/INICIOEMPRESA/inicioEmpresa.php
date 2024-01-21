@@ -34,7 +34,7 @@ while (mysqli_next_result($conn)) {;
 }
 
 // operacion paginacion 
-$limiteConsulta = 1;
+$limiteConsulta = 10;
 
 
 if (empty($_REQUEST['pagina'])) {

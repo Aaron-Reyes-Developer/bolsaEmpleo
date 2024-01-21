@@ -47,7 +47,7 @@
 
 
 /* APROBADO */
-.contenedorAprobado{
+.contenedorDesaprobado{
     background-color: #424242;
     display: flex;
     justify-content: center;
@@ -55,7 +55,7 @@
     border-radius: 7px;
     color: #fff;
     padding: 5px 7px;
-    cursor: no-drop;
+    cursor: pointer;
 }
 
 @media screen and (max-width:570px) {

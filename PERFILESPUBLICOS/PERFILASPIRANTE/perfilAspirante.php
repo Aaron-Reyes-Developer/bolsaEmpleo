@@ -41,19 +41,29 @@ $resultadoDatosEstudiantes = mysqli_query($conn, $queryDatosEstudiantes);
 
 
 
-
-
-
 // SI NO SE ENCONTRO EL ASPIRANTE SE MANDA UN 404
 if (mysqli_num_rows($resultadoDatosEstudiantes) <= 0) {
     include('./error404.html');
     die();
 }
 
-
 $recorrerDatosEstudiantes = mysqli_fetch_array($resultadoDatosEstudiantes);
 while (mysqli_next_result($conn)) {;
 }
+
+
+
+// consulta para ver si las plazas son mayor a 0
+$queryPlazas = mysqli_query($conn, "SELECT plaza FROM oferta_trabajo WHERE id_oferta_trabajo = $id_oferta");
+$rowPlazas = mysqli_fetch_assoc($queryPlazas);
+$plazas = $rowPlazas['plaza'];
+
+
+// actualizar la oferta (desactivarla) si las plazas son 0
+if ($plazas <= 0) {
+    $queryDesactivarOferta = mysqli_query($conn, "UPDATE oferta_trabajo SET estado_oferta = '0' WHERE id_oferta_trabajo = $id_oferta");
+}
+
 
 
 // aprobar aspirante
@@ -67,7 +77,7 @@ if (isset($_POST['aprobar'])) {
     while (mysqli_next_result($conn)) {;
     }
 
-    // cambiar el estado de la notificacion a 1
+
 
 
     //query para consultar el nombre de la oferta (para mandarlo por correo)
@@ -75,6 +85,7 @@ if (isset($_POST['aprobar'])) {
     $recorrerOferta = mysqli_fetch_array($queryNombreOferta);
     while (mysqli_next_result($conn)) {;
     }
+
 
     // mandar un correo avisandole que le aprobaron la oferta
     $para = $recorrerDatosEstudiantes['correo'];
@@ -84,24 +95,22 @@ if (isset($_POST['aprobar'])) {
 
 
 
-    // saber la cantidad de ofertas aprobadas que tien la oferta para mostrarlo en el perfil empresa
-    $queryContarOfertasAprobadas  = mysqli_query($conn, "SELECT count(ofert.id_oferta_trabajo) as totalAprobados FROM oferta_trabajo as ofert LEFT JOIN postula as post ON ofert.id_oferta_trabajo = post.fk_id_oferta_trabajo WHERE ofert.fk_id_usuario_empresa = '$id_empresa' AND post.aprobado >= 1 ");
-    $recorrerOfertasAprobadas = mysqli_fetch_array($queryContarOfertasAprobadas);
-    while (mysqli_next_result($conn)) {;
-    }
-
-    //atualizar las ofertas aprobadas
-    $totalOfertasAprobadas =  $recorrerOfertasAprobadas['totalAprobados'];
-    $queryActualizarOfertaAprobado = "UPDATE datos_empresa SET ofertas_aprobadas = '$totalOfertasAprobadas' WHERE fk_id_usuario_empresa = '$id_empresa'";
-    $respuestaActualizarOfertaAprobado = mysqli_query($conn, $queryActualizarOfertaAprobado);
+    // query para decrementar la plaza de la oferta de trabajo
+    $queryDecrementarPlaza = mysqli_query($conn, "UPDATE oferta_trabajo SET plaza = plaza - 1 WHERE id_oferta_trabajo = $id_oferta");
     while (mysqli_next_result($conn)) {;
     }
 
 
+    // actualizar las foertas aprobadas en el perfil de la empresa
+    $respuestaActualizarOfertaAprobado = mysqli_query($conn, "UPDATE datos_empresa SET ofertas_aprobadas = ofertas_aprobadas + 1 WHERE fk_id_usuario_empresa = '$id_empresa'");
+    while (mysqli_next_result($conn)) {;
+    }
 
 
 
-    // si se apruba correctamente
+
+
+    // si se apruba correctamente mandamos un correo
     if ($respuestaAprobar && mail($para, $titulo, $mensaje, $correoBolsaDeEmpleo)) {
 ?>
 
@@ -288,52 +297,81 @@ if (isset($_POST['aprobar'])) {
             <!-- GUARDAR / IMPRIMIR / APROBAR -->
             <div class="contenedorBotones">
 
-                <div class="contenedorGuardar">
-
-                    <?php
-                    // query para saber si el aspirante esta guardado
-                    $queryApiranteGuardado = mysqli_query($conn, "SELECT id_estudiante_guardado FROM estudiantes_guardados WHERE fk_id_usuario_estudiante = $id_aspirante AND fk_id_oferta_trabajo  = $id_oferta");
-
-                    // entra si el aspirante esta guardaro
-                    if (mysqli_num_rows($queryApiranteGuardado) >= 1) {
-                    ?>
-
-                        <img id="imagenDesguardar" onclick="desguardarAspirante(<?php echo $id_aspirante ?>, <?php echo $id_oferta ?>)" src="../../imagenes/Iconos/desguadar.webp" width="40px" alt="" title="Eliminar Aspirante">
-
-                    <?php
-                    } else {
-                    ?>
-                        <img id="imagenGuardar" onclick="guardarAspirante(<?php echo $id_aspirante ?>, <?php echo $id_oferta ?>)" src="../../imagenes/Iconos/guardar.webp" width="40px" alt="" title="Guardar Aspirante">
-
-                    <?php
-                    }
-                    ?>
-
-                </div>
-
-
-                <!-- APROBAR -->
+                <!-- /////////////////////////////////////////////////      GUARDAR         /////////////////////////////////////////////////-->
                 <?php
                 if (isset($id_oferta)) {
 
-                    //consulta para saber si ya se aprobo
-
-                    $queryYaSeAprobo = "SELECT * FROM postula WHERE fk_id_oferta_trabajo = '$id_oferta' and fk_id_usuEstudiantes = '$id_aspirante' and aprobado >= 1 ";
-                    $respuestaYaAprobo = mysqli_query($conn, $queryYaSeAprobo);
-                    $contar_row_YaSeAprobo = mysqli_num_rows($respuestaYaAprobo);
-
-                    if ($contar_row_YaSeAprobo < 1) {
                 ?>
-                        <form action="" method="post" class="aprobar">
-                            <input type="submit" name="aprobar" value="Aprobar" class="inputAprobar btn btn-primary">
-                        </form>
+                    <div class="contenedorGuardar">
+
+                        <?php
+                        // query para saber si el aspirante esta guardado
+                        $queryApiranteGuardado = mysqli_query($conn, "SELECT id_estudiante_guardado FROM estudiantes_guardados WHERE fk_id_usuario_estudiante = $id_aspirante AND fk_id_oferta_trabajo  = $id_oferta");
+
+                        // entra si el aspirante esta guardaro
+                        if (mysqli_num_rows($queryApiranteGuardado) >= 1) {
+                        ?>
+
+                            <img id="imagenDesguardar" onclick="desguardarAspirante(<?php echo $id_aspirante ?>, <?php echo $id_oferta ?>)" src="../../imagenes/Iconos/desguadar.webp" width="40px" alt="" title="Eliminar Aspirante">
+
+                        <?php
+                        } else {
+                        ?>
+                            <img id="imagenGuardar" onclick="guardarAspirante(<?php echo $id_aspirante ?>, <?php echo $id_oferta ?>)" src="../../imagenes/Iconos/guardar.webp" width="40px" alt="" title="Guardar Aspirante">
+
+                        <?php
+                        }
+                        ?>
+
+                    </div>
+
                 <?php
-                    } else {
-                        echo "<div class='contenedorAprobado'>Aprobado, Ponte en contacto con el aspirante</div>";
-                    }
                 }
                 ?>
 
+
+                <!-- /////////////////////////////////////////////////      APROBAR         /////////////////////////////////////////////////-->
+                <?php
+
+                // si existe el id de la oferta (significa que entro desde una oferta)
+                if (isset($id_oferta)) {
+
+                    //consulta para saber si ya se aprobo al aspirante
+                    $respuestaYaAprobo = mysqli_query($conn, "SELECT * FROM postula WHERE fk_id_oferta_trabajo = '$id_oferta' and fk_id_usuEstudiantes = '$id_aspirante' and aprobado >= 1 ");
+
+
+                    // verificamos si las plazas son mayor a 0 (osea si hay bacantes)
+                    if ($plazas > 0) {
+
+
+                        // si no esta aprobado se muestra el boton para aprobar
+                        if (mysqli_num_rows($respuestaYaAprobo) < 1) {
+
+                ?>
+                            <form action="" method="post" class="aprobar">
+                                <input type="submit" name="aprobar" value="Aprobar" class="inputAprobar btn btn-primary">
+                            </form>
+                <?php
+
+                        }
+
+                        // verificar si esta aprobado, para mostrar el boton de desaprobar
+                    } else if (mysqli_num_rows($respuestaYaAprobo) >= 1) {
+
+
+                        echo "<div class='contenedorDesaprobado'>Desaprobar</div>";
+                    } else {
+
+                        // no hay plazas de trabajo
+                        echo "<div class='alert alert-warning' role='alert'>No existen más Plazas de trabajo</div>";
+                    }
+                }
+
+
+                ?>
+
+
+                <!-- /////////////////////////////////////////////////      IMPRIMIR         /////////////////////////////////////////////////-->
                 <div class="aprobar imprimir">
                     <a href="../../IMPRIMIRPDF/plantillaCv.php?id_aspirante=<?php echo $id_aspirante ?>" Target="_blank"><img src="../../imagenes/Iconos/imprimir.png" alt="" title="Imprimir Cv"></a>
                 </div>

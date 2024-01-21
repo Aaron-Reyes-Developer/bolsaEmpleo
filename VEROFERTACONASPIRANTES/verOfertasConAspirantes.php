@@ -20,9 +20,22 @@ $id_oferta = $_SESSION['id_oferta'];
 //consultar datos de la oferta
 $quieryOferta = mysqli_query($conn, "call detalleOferta($id_empresa,$id_oferta);");
 $recorrerOferta = mysqli_fetch_array($quieryOferta);
-
+$plaza = $recorrerOferta['plaza'];
+$estado_oferta = $recorrerOferta['estado_oferta'];
 while (mysqli_next_result($conn)) {;
 }
+
+
+// decrementar la oferta (siempre y cuando este activa)
+if ($plaza <= 0 and $estado_oferta >= 1) {
+
+    // query para decrementar la plaza de la oferta de trabajo
+    $queryDecrementarPlaza = mysqli_query($conn, "UPDATE oferta_trabajo SET plaza = plaza - 1 WHERE id_oferta_trabajo = $id_oferta");
+    while (mysqli_next_result($conn)) {;
+    }
+}
+
+
 
 // total aspirantes que estan el la oferta
 $queryTotalAspirante = mysqli_query($conn, "SELECT usuEstu.id_usuEstudiantes FROM usuario_estudiantes as usuEstu 
@@ -32,12 +45,15 @@ LEFT JOIN oferta_trabajo as ofert
 ON ofert.id_oferta_trabajo = post.fk_id_oferta_trabajo
 WHERE post.fk_id_oferta_trabajo = '$id_oferta' ");
 
+
+
 // datos paginacion
 if (empty($_REQUEST['pagina'])) {
     $pagina = 1;
 } else {
     $pagina = $_REQUEST['pagina'];
 }
+
 
 $liminetaConsulta = 20;
 $desde = ($pagina - 1) * $liminetaConsulta;
@@ -57,6 +73,9 @@ LEFT JOIN datos_empresa as datosEm
 ON usuEm.id_usuario_empresa = datosEm.fk_id_usuario_empresa
 WHERE usuEm.id_usuario_empresa = '$id_empresa' ");
 $recorrerFotoEmpresa = mysqli_fetch_array($respuestaFotoEmpresa);
+
+
+
 
 ?>
 
@@ -156,12 +175,20 @@ $recorrerFotoEmpresa = mysqli_fetch_array($respuestaFotoEmpresa);
             <div class="contenedor_titulo">
                 <hr>
 
+                <!-- MENSAJE OFERTA ELIMINADA -->
                 <?php
 
-                // si por alguna razon la consulta no busca el dato que se le pasa por la ulr, se muestra un mensaje de error
-                if (mysqli_num_rows($quieryOferta) <= 0 || $recorrerOferta['estado_oferta'] == 0) {
+
+                if (mysqli_num_rows($quieryOferta) <= 0) {
                     include('../ERROR404/error404.html');
                     die();
+                }
+
+                if ($recorrerOferta['estado_oferta'] == 0) {
+
+                    echo "<div class='alert alert-danger' role='alert'>
+                            Oferta Eliminada
+                        </div>";
                 }
                 ?>
 
@@ -272,11 +299,62 @@ $recorrerFotoEmpresa = mysqli_fetch_array($respuestaFotoEmpresa);
         </section>
 
 
+        <section class="seccionGuradados">
+
+            <h3>Guardados <img src="../imagenes/Iconos/guardar.webp" width="20px" alt=""></h3>
+
+            <div class="contenedorCartas">
+
+                <?php
+                // busca los aspirantes que estan guardados 
+                $queryAspirantesGuardados = mysqli_query($conn, "call datoEstudianteGuardado( $id_oferta)");
+                while (mysqli_next_result($conn)) {;
+                }
+
+                // si no existe los aspirantes muestra una alerta
+                if (mysqli_num_rows($queryAspirantesGuardados) <= 0) {
+
+                ?>
+                    <div class="alert alert-warning" role="alert">
+                        Sin Aspirantes Guardados
+                    </div>
+                    <?php
+
+                } else {
+
+                    while ($rowAspiranteGuardado = mysqli_fetch_assoc($queryAspirantesGuardados)) {
+                    ?>
+                        <div class="cartaGuardado">
+
+                            <div class="contenedorImagenGuardado"><img src="data:image/jpeg;base64, <?php echo base64_encode($rowAspiranteGuardado['imagen_perfil']) ?>" alt=""></div>
+
+                            <div class="contenedorDetalleGuardado">
+                                <span class="nombre"><b><?php echo $rowAspiranteGuardado['nombres'] ?></b></span><br>
+                                <span class="especializacion"><?php echo $rowAspiranteGuardado['especializacion_curriculum'] ?></span>
+                            </div>
+
+                            <a onclick="irAspirante(<?php echo $rowAspiranteGuardado['id_usuEstudiantes'] ?>)" href="" class="verDetalleAspirante">Ver detalle...</a>
+                        </div>
+                <?php
+                    }
+                }
+                ?>
+
+
+
+
+
+            </div>
+
+        </section>
+
+
+
         <section class="seccionPostulantes">
 
             <hr>
 
-            <h2>Postulantes</h2>
+            <h3>Postulantes</h3>
 
 
             <div class="contenedorPostulantes">

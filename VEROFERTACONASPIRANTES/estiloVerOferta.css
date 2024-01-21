@@ -117,6 +117,60 @@
 }
 
 
+/* ///////////////////////////////////////////  SECCION GUARDADOS  ///////////////////////////////////////////*/
+.seccionGuradados h3{
+    margin-bottom: 1rem;
+}
+.contenedorCartas{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.cartaGuardado{
+    width: 350px;
+    height: 110px;
+    background-color: #ffffff;
+    display: flex;
+    border-radius: 7px; 
+    position: relative;
+    box-shadow: 9px 9px 10px #e4e4e4;
+}
+.contenedorImagenGuardado{
+    min-width: 40%;
+    max-width: 45%;
+    height: 100%;
+    border-radius: 7px 0 0 7px ;
+    overflow: hidden;
+}
+.contenedorImagenGuardado img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.contenedorDetalleGuardado{
+    padding: 3px 5px;
+}
+.contenedorDetalleGuardado .nombre{
+    font-size: 1.1rem;
+}
+.contenedorDetalleGuardado .especializacion{
+    font-size: 0.9rem;
+}
+.verDetalleAspirante{
+    position: absolute;
+    bottom: 3px;
+    right: 7px;
+}
+
+
+
+
+
+
+
 
 /* postulantes */
 .seccionPostulantes{
