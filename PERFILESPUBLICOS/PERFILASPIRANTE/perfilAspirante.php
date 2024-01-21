@@ -18,7 +18,20 @@ $id_aspirante = $_SESSION['id_aspirante'];
 
 
 if (isset($_SESSION['id_oferta'])) {
+
     $id_oferta = $_SESSION['id_oferta'];
+
+
+    // consulta para ver si las plazas son mayor a 0
+    $queryPlazas = mysqli_query($conn, "SELECT plaza FROM oferta_trabajo WHERE id_oferta_trabajo = $id_oferta");
+    $rowPlazas = mysqli_fetch_assoc($queryPlazas);
+    $plazas = $rowPlazas['plaza'];
+
+
+    // actualizar la oferta (desactivarla) si las plazas son 0
+    if ($plazas <= 0) {
+        $queryDesactivarOferta = mysqli_query($conn, "UPDATE oferta_trabajo SET estado_oferta = '0' WHERE id_oferta_trabajo = $id_oferta");
+    }
 }
 
 
@@ -53,16 +66,10 @@ while (mysqli_next_result($conn)) {;
 
 
 
-// consulta para ver si las plazas son mayor a 0
-$queryPlazas = mysqli_query($conn, "SELECT plaza FROM oferta_trabajo WHERE id_oferta_trabajo = $id_oferta");
-$rowPlazas = mysqli_fetch_assoc($queryPlazas);
-$plazas = $rowPlazas['plaza'];
 
 
-// actualizar la oferta (desactivarla) si las plazas son 0
-if ($plazas <= 0) {
-    $queryDesactivarOferta = mysqli_query($conn, "UPDATE oferta_trabajo SET estado_oferta = '0' WHERE id_oferta_trabajo = $id_oferta");
-}
+
+
 
 
 
@@ -76,7 +83,6 @@ if (isset($_POST['aprobar'])) {
     $respuestaAprobar = mysqli_query($conn, $queryAprobar);
     while (mysqli_next_result($conn)) {;
     }
-
 
 
 
@@ -339,13 +345,19 @@ if (isset($_POST['aprobar'])) {
                     //consulta para saber si ya se aprobo al aspirante
                     $respuestaYaAprobo = mysqli_query($conn, "SELECT * FROM postula WHERE fk_id_oferta_trabajo = '$id_oferta' and fk_id_usuEstudiantes = '$id_aspirante' and aprobado >= 1 ");
 
+                    // entra si no hay plazas y el aspirante no ha sido aprobado
+                    if ($plazas <= 0 && mysqli_num_rows($respuestaYaAprobo) < 1) {
 
-                    // verificamos si las plazas son mayor a 0 (osea si hay bacantes)
-                    if ($plazas > 0) {
+                        // no hay plazas de trabajo
+                        echo "<div class='alert alert-warning' role='alert'>No existen más Plazas de trabajo</div>";
+
+                        //
+                    } else {
 
 
                         // si no esta aprobado se muestra el boton para aprobar
                         if (mysqli_num_rows($respuestaYaAprobo) < 1) {
+
 
                 ?>
                             <form action="" method="post" class="aprobar">
@@ -353,20 +365,27 @@ if (isset($_POST['aprobar'])) {
                             </form>
                 <?php
 
+                        } else {
+
+
+                            $rowPostula = mysqli_fetch_assoc($respuestaYaAprobo);
+                            $id_postula = $rowPostula['id_postula'];
+
+                            // boton de desaprobar
+                            echo "<div onclick='desaprobar($id_postula)' class='contenedorDesaprobado'>
+
+                                    Desaprobar
+
+                                    <div class='contenedorHover'>
+                                        Se le enviara un <br> 
+                                        correo al aspirante <br> 
+                                        notificándole que ha sido desaprobado
+                                    </div>
+
+                                </div>";
                         }
-
-                        // verificar si esta aprobado, para mostrar el boton de desaprobar
-                    } else if (mysqli_num_rows($respuestaYaAprobo) >= 1) {
-
-
-                        echo "<div class='contenedorDesaprobado'>Desaprobar</div>";
-                    } else {
-
-                        // no hay plazas de trabajo
-                        echo "<div class='alert alert-warning' role='alert'>No existen más Plazas de trabajo</div>";
                     }
                 }
-
 
                 ?>
 
@@ -756,7 +775,35 @@ if (isset($_POST['aprobar'])) {
 
         }
 
-        //
+        // desaprobar al aspirnate
+        const desaprobar = (id_postula) => {
+
+            let FD = new FormData()
+            FD.append('id_postula', id_postula)
+
+
+
+            fetch('./queryDesaprobar.php', {
+                    method: 'POST',
+                    body: FD
+                })
+                .then(res => res.json())
+                .then(data => {
+
+                    console.log(data);
+                    // if (data.mensaje === 'ok') {
+
+                    //     modalGuardado('Desaprobado Correctamente')
+
+                    //     setTimeout(() => {
+                    //         window.location.reload()
+                    //     }, 1500)
+                    // }
+
+                })
+
+
+        }
     </script>
 
 
