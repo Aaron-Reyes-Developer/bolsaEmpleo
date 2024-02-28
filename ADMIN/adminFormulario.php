@@ -1,5 +1,6 @@
 <?php
 
+    
     session_start();
 
     if(isset($_POST['entrar'])){
@@ -9,19 +10,21 @@
             die();
         }
         
+        
 
         include('../conexion.php');
         $contra = htmlspecialchars($_POST['contra']);
         
-        $queryBuscar = "SELECT * FROM adminunesum WHERE contra = '$contra' ";
-        $resultado = mysqli_query($conn, $queryBuscar);
-
+        
+        
+        $resultado = mysqli_query($conn, "SELECT * FROM adminunesum WHERE contra = '$contra' ");
+        
         $contarFilas = mysqli_num_rows($resultado);
 
         if($contarFilas >= 1){
 
             $_SESSION['entra_admin'] = true;
-            header('Location: ./admin.php');
+            header('Location: https://trabajounesum.com/ADMIN/admin.php');
 
         }
         else{
@@ -70,7 +73,7 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-    <script src="./validarForm.js"></script>
-    <script src="../evitarReenvioFormulario.js"></script>
+    <script src="https://trabajounesum.com/ADMIN/validarForm.js"></script>
+    <script src="https://trabajounesum.com/evitarReenvioFormulario.js"></script>
 </body>
 </html>

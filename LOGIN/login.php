@@ -1,8 +1,8 @@
 <?php
 
-error_reporting(0);
+// error_reporting(0);
 
-include('./validarLogin.php');
+include('https://trabajounesum.com/LOGIN/validarLogin.php');
 
 //Obtener los valores para usarlos en el 'value' de los inputs
 if (isset($_POST['submit'])) {
@@ -320,7 +320,7 @@ if (isset($_POST['submit'])) {
     </script>
 
     <!-- VALIDAR FORMULARIO -->
-    <script src="./scriptValidarFormulario.js"></script>
+    <script src="https://trabajounesum.com/LOGIN/scriptValidarFormulario.js"></script>
 
     <!-- LIBRERIA ANIMACION -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

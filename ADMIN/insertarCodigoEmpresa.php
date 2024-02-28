@@ -11,7 +11,7 @@ if (!isset($_POST['nombreEmpresa'])) {
     die();
 }
 
-include("../conexion.php");
+include("https://trabajounesum.com/conexion.php");
 
 
 $respuesta = array('mensaje' => 'estamos dentro');

@@ -66,15 +66,15 @@
 
         <form class="formulario" id="formulario" data-aos="fade-up">
 
-            <h1>VALIDAR CODIGO EMPRESA</h1>
+            <h1>VALIDAR CÓDIGO EMPRESA</h1>
             <hr>
 
             <div class="mb-3">
-                <label for="codigo" class="form-label">Codigo*</label>
+                <label for="codigo" class="form-label">Código*</label>
                 <input type="text" class="form-control" id="codigo" name="codigo" placeholder="Ingrese el codigo">
             </div>
 
-            <p>Si no dispone de un código para su empresa, favor de mandar un correo a <i>insertarCorreo@gmail.com</i> con el nombre y ruc de su empresa.</p>
+            <p>Si no dispone de un código para su empresa, favor de mandar un correo a <i>soporte@trabajounesum.com</i> con el nombre y ruc de su empresa solicitando un código  de registro.</p>
 
             <div class="mt-3">
                 <input type="submit" class="form-control botonSubmit" id="botonSubmit" value="Validar">

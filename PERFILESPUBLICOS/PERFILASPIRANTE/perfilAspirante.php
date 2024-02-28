@@ -97,7 +97,7 @@ if (isset($_POST['aprobar'])) {
     $para = $recorrerDatosEstudiantes['correo'];
     $titulo = "¡Oferta Aprobada!";
     $mensaje = "La empresa " . $recorrerFotoEmpresa['nombre'] . " aprobó  tu solicitud en la oferta: " . "'" . $recorrerOferta['puesto'] . "'" . "\r\nIngresa a la Bolsa de Empleo para saber los detalle de la oferta" . "\r\nEste al pendiente de su correo o número celular";
-    $correoBolsaDeEmpleo = "From: empleo@bolsadeempleounesum.online";
+    $correoBolsaDeEmpleo = "From: soporte@trabajounesum.com";
 
 
 

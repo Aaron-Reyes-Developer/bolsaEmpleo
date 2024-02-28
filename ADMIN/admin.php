@@ -1,8 +1,9 @@
 <?php
 session_start();
 
+
 if ($_SESSION['entra_admin'] != true || !isset($_SESSION['entra_admin'])) {
-    header('Location: ../index.html');
+    header('Location: https://trabajounesum.com/index.html');
     die();
 }
 
@@ -79,7 +80,7 @@ function limitar_cadena($cadena, $limite, $sufijo)
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../imagenes/iconos/iconoAdmin/kitty.gif">
+    <link rel="icon" href="https://trabajounesum.com/imagenes/Iconos/iconoAdmin/kitty.gif">
 
     <!-- BOOSTRAP -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
@@ -102,8 +103,8 @@ function limitar_cadena($cadena, $limite, $sufijo)
     <!-- ALERTA PERSONALIZADA -->
     <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="estiloAdmin.css">
-    <link rel="stylesheet" href="estiloHeader.css">
+    <link rel="stylesheet" href="https://trabajounesum.com/ADMIN/estiloAdmin.css">
+    <link rel="stylesheet" href="https://trabajounesum.com/ADMIN/estiloHeader.css">
     <title>Admin</title>
 </head>
 
@@ -116,8 +117,8 @@ function limitar_cadena($cadena, $limite, $sufijo)
 
             <div class="container-fluid ">
 
-                <a class="navbar-brand" href="../index.html">
-                    <img src="../imagenes/logoUnesum.webp" alt="">
+                <a class="navbar-brand" href="https://trabajounesum.com/index.html">
+                    <img src="https://trabajounesum.com/imagenes/logoUnesum.webp" alt="">
                 </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -134,10 +135,10 @@ function limitar_cadena($cadena, $limite, $sufijo)
                                 Extras
                             </div>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="./EXTRAS/TIPOOFERTAEMPLEO/tipoOferta.php">Tipo Oferta Empleo</a></li>
-                                <li><a class="dropdown-item" href="./EXTRAS/TIPOLUGAREMPLEO/tipoLugarOferta.php">Tipo Lugar Oferta Empleo</a></li>
-                                <li><a class="dropdown-item" href="./EXTRAS/TIPOHORARIO/tipoHorario.php">Tipo Horario Empleo</a></li>
-                                <li><a class="dropdown-item" href="./EXTRAS/PUBLICIDAD/publicidad.php">Publicidad</a></li>
+                                <li><a class="dropdown-item" href="https://trabajounesum.com/ADMIN/EXTRAS/TIPOOFERTAEMPLEO/tipoOferta.php">Tipo Oferta Empleo</a></li>
+                                <li><a class="dropdown-item" href="https://trabajounesum.com/ADMIN/EXTRAS/TIPOLUGAREMPLEO/tipoLugarOferta.php">Tipo Lugar Oferta Empleo</a></li>
+                                <li><a class="dropdown-item" href="https://trabajounesum.com/ADMIN/EXTRAS/TIPOHORARIO/tipoHorario.php">Tipo Horario Empleo</a></li>
+                                <li><a class="dropdown-item" href="https://trabajounesum.com/ADMIN/EXTRAS/PUBLICIDAD/publicidad.php">Publicidad</a></li>
                             </ul>
                         </div>
 

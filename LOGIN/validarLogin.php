@@ -18,17 +18,17 @@ if (isset($_POST['submit'])) {
     // VALIDAR LOS CAMPOS VACIOS
     if ($seleccion == "") {
         echo "<script> alert('Seleccion Vacia') </script>";
-        echo "<script> window.location.href = './login.php'; </script>";
+        echo "<script> window.location.href = 'https://trabajounesum.com/LOGIN/login.php'; </script>";
         die();
     }
     if ($email == "") {
         echo "<script> alert('Correo Vacio') </script>";
-        echo "<script> window.location.href = './login.php'; </script>";
+        echo "<script> window.location.href = 'https://trabajounesum.com/LOGIN/login.php'; </script>";
         die();
     }
     if ($contra == "") {
         echo "<script> alert('Contraseña Vacia') </script>";
-        echo "<script> window.location.href = './login.php'; </script>";
+        echo "<script> window.location.href = 'https://trabajounesum.com/LOGIN/login.php'; </script>";
         die();
     }
 
@@ -84,7 +84,7 @@ if (isset($_POST['submit'])) {
 
                 <!-- MODAL -->
                 <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
-                <script src="./modalErrorCuentaSinDatos.js"></script>
+                <script src="https://trabajounesum.com/LOGIN/modalErrorCuentaSinDatos.js"></script>
 
             </body>
         <?php
@@ -142,7 +142,7 @@ if (isset($_POST['submit'])) {
 
                 <!-- MODAL -->
                 <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
-                <script src="./modalNoSeEncontroRegistro.js"></script>
+                <script src="https://trabajounesum.com/LOGIN/modalNoSeEncontroRegistro.js"></script>
 
             </body>
         <?php
@@ -171,7 +171,7 @@ if (isset($_POST['submit'])) {
 
                 <!-- MODAL -->
                 <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
-                <script src="./modalNoSeEncontroRegistro.js"></script>
+                <script src="https://trabajounesum.com/LOGIN/modalNoSeEncontroRegistro.js"></script>
 
             </body>
 <?php
