@@ -1,8 +1,9 @@
 <?php
 
-// error_reporting(0);
+error_reporting(0);
 
-include('https://trabajounesum.com/LOGIN/validarLogin.php');
+include('./validarLogin.php');
+
 
 //Obtener los valores para usarlos en el 'value' de los inputs
 if (isset($_POST['submit'])) {
