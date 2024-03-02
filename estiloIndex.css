@@ -160,12 +160,20 @@ body {
     width: 70px;
     height: 70px;
     background-color: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.1s ease-in all;
 }
 .contenedorEmpresas .carta img{
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
+.contenedorEmpresas .carta:hover{
+    scale: 1.05;
+}
+
 
 
 /* ///////////////////////////////////////////////////      QUIENES PUEDEN POSTULAR      /////////////////////////////////////////////////// */
