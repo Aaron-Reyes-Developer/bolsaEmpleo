@@ -81,6 +81,9 @@ $queryCarreras = mysqli_query($conn, "SELECT * FROM carreras WHERE estado = 1");
 
 <body>
 
+    <button onclick="irAtras()" class="botonAtras btn "> &#10096; </button>
+
+
     <main class="main">
 
         <!-- SECCION FORMULARIO -->
@@ -472,6 +475,12 @@ $queryCarreras = mysqli_query($conn, "SELECT * FROM carreras WHERE estado = 1");
                     }
 
                 })
+        }
+
+
+        // ir atras (boton)
+        const irAtras = () => {
+            window.history.back();
         }
     </script>
 </body>
