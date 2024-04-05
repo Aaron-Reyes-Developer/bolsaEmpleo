@@ -243,8 +243,8 @@ if (isset($_POST['submit'])) {
 
             <div class="contenedor-imagen-logo">
 
-                <div class="imagen1"><img src="../imagenes/cambiarWiler.jpg" alt=""></div>
-                <div class="imagen2"><img src="../imagenes/cambiarWiler.png" alt=""></div>
+                <div class="imagen1"><img src="../imagenes/logoLogin/logoTic1.webp" alt=""></div>
+                <div class="imagen2"><img src="../imagenes/logoLogin/logoTic2.webp" alt=""></div>
 
             </div>
 
