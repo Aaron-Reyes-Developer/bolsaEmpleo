@@ -164,17 +164,27 @@ $resultadoOfertaEmpresa = mysqli_query($conn, $queryOfertaEmpresa);
 
                     <?php
 
-                    while ($recorrerOfertaEmpresa = mysqli_fetch_array($resultadoOfertaEmpresa)) {
+                    if (mysqli_num_rows($resultadoOfertaEmpresa) == 0) {
                     ?>
-                        <div class="ofertaCarta">
-                            <h4><?php echo $recorrerOfertaEmpresa['puesto'] ?></h4>
-                            <span><?php echo limitar_cadena($recorrerOfertaEmpresa['detalle'], 63, '...') ?></span><br><br>
-                            <a onclick="irOferta(<?php echo $recorrerOfertaEmpresa['id_oferta_trabajo'] ?>, <?php echo $id_empresa ?>)" style="color: blue; text-decoration: underline; cursor: pointer;" class=" verDetalles">Ver detalles...</a>
+                        <div class="alert alert-warning" role="alert">
+                            ¡Sin ofertas de empleo!
                         </div>
+                        <?php
+
+
+                    } else {
+
+                        while ($recorrerOfertaEmpresa = mysqli_fetch_array($resultadoOfertaEmpresa)) {
+                        ?>
+                            <div class="ofertaCarta">
+                                <h4><?php echo $recorrerOfertaEmpresa['puesto'] ?></h4>
+                                <span><?php echo limitar_cadena($recorrerOfertaEmpresa['detalle'], 63, '...') ?></span><br><br>
+                                <a onclick="irOferta(<?php echo $recorrerOfertaEmpresa['id_oferta_trabajo'] ?>, <?php echo $id_empresa ?>)" style="color: blue; text-decoration: underline; cursor: pointer;" class=" verDetalles">Ver detalles...</a>
+                            </div>
 
                     <?php
+                        }
                     }
-
                     ?>
 
                 </div>
