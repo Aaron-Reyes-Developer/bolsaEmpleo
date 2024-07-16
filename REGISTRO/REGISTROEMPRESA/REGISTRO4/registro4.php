@@ -4,6 +4,8 @@ session_start();
 if ($_SESSION['id_empresa'] == null) {
 
     header('Location: ../../../LOGIN/login.php');
+
+    //
 } else if (isset($_POST['registrar'])) {
 
     $id_empresa = $_SESSION['id_empresa'];
@@ -71,6 +73,8 @@ if ($_SESSION['id_empresa'] == null) {
 
 
 
+// NOMBRE DE LA EMPRESA (FUNCIOINAR COMO NOMBRE DE USUARIO)
+$nombre_empresa = $_REQUEST['nombre_empresa'] ?? '';
 ?>
 
 <!DOCTYPE html>
@@ -242,7 +246,7 @@ if ($_SESSION['id_empresa'] == null) {
                     <!-- INPUT NOMBRE USUARIO -->
                     <div class="mb-3 contenedor-correo has-validation">
                         <label for="nombreUsuario" class="form-label">Nombre de usuario*</label>
-                        <input type="text" name="nombreUsuario" class="form-control" id="nombreUsuario" aria-describedby="emailHelp" required placeholder="">
+                        <input type="text" name="nombreUsuario" class="form-control" id="nombreUsuario" aria-describedby="emailHelp" value="<?php echo $nombre_empresa  ?> " required placeholder="">
 
                         <!-- validar fromulario boostrap -->
                         <div class="invalid-feedback">
@@ -253,7 +257,7 @@ if ($_SESSION['id_empresa'] == null) {
 
                     <!-- UBICACION MAPS -->
                     <div class="row g-2">
-                        <span class="col-12"> Ubicación exacta maps* <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal"> Ejemplo</a> </span>
+                        <span class="col-12"> Ubicación exacta de <a href="https://www.google.com/maps" target="_blank">Google Maps</a>* <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal"> Ejemplo</a> </span>
 
                         <!-- Ubicacion maps link -->
                         <div class="col-md contenedor-latitud has-validation">
@@ -261,7 +265,7 @@ if ($_SESSION['id_empresa'] == null) {
                             <div class="form-floating">
 
                                 <textarea class="form-control texarea" name="lugarMaps" id="floatingInputGrid" rows="3" required></textarea>
-                                <label for="floatingInputGrid">Ubicacion Maps</label>
+                                <label for="floatingInputGrid">Ubicación Maps</label>
 
                                 <!-- validar fromulario boostrap -->
                                 <div class="invalid-feedback">
@@ -276,21 +280,21 @@ if ($_SESSION['id_empresa'] == null) {
 
                     <!-- INPUT GERENETE GENERAL -->
                     <div class="mb-3 contenedor-correo ">
-                        <label for="gerenteGeneral" class="form-label">Gerente General</label>
-                        <input type="text" name="gerenteGeneral" class="form-control" id="gerenteGeneral" aria-describedby="emailHelp" placeholder="Ing. Aaron Josue Reyes Carvajal">
+                        <label for="gerenteGeneral" class="form-label">Gerente General*</label>
+                        <input type="text" name="gerenteGeneral" class="form-control" id="gerenteGeneral" aria-describedby="emailHelp" placeholder="Ing. Aaron Josue Reyes Carvajal" required>
 
                     </div>
 
                     <!-- INPUT RECURSOS HUMANOS -->
                     <div class="mb-3 contenedor-correo has-validation">
-                        <label for="recursosHumano" class="form-label">Recursos Humanos</label>
-                        <input type="text" name="recursoHumano" class="form-control" id="recursosHumano" aria-describedby="emailHelp" placeholder="Ing. Luis Alberto Menendez Salazar">
+                        <label for="recursosHumano" class="form-label">Recursos Humanos* </label>
+                        <input type="text" name="recursoHumano" class="form-control" id="recursosHumano" aria-describedby="emailHelp" placeholder="Ing. Luis Alberto Menendez Salazar" required>
 
                     </div>
 
                     <!-- INPUT ANTIGUEDAD -->
                     <div class="mb-3 contenedor-correo has-validation">
-                        <label for="antiguedadEmpresa" class="form-label">Antiguedad Empresa*</label>
+                        <label for="antiguedadEmpresa" class="form-label">Antigüedad de la Empresa*</label>
                         <input type="number" name="antiguedadEmpresa" class="form-control" id="antiguedadEmpresa" aria-describedby="emailHelp" placeholder="Antiguedad en años" required>
 
                         <!-- validar fromulario boostrap -->
@@ -302,7 +306,7 @@ if ($_SESSION['id_empresa'] == null) {
 
                     <!-- INPUT LINK PAGINA WEB -->
                     <div class="mb-3 contenedor-correo has-validation">
-                        <label for="linkPagina" class="form-label">Pagina Web</label>
+                        <label for="linkPagina" class="form-label">Pagina Web ( <i>opcional</i> )</label>
                         <input type="text" name="paginaWeb" class="form-control" id="linkPagina" aria-describedby="emailHelp" placeholder="www.ejemplo.com">
                     </div>
 

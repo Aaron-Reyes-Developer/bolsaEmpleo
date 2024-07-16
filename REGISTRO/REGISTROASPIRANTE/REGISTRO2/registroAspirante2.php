@@ -76,83 +76,7 @@ while ($recorrerCarreras = mysqli_fetch_array($queryCarreras)) {
                         </li>
 
 
-                        <li class="nav-item dropdown">
 
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Facultades
-                            </a>
-
-                            <ul class="dropdown-menu">
-
-                                <!-- Ciencias de la salud -->
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Ciencias de la Salud
-                                    </a>
-                                    <ul class="dropdown-menu" style="background-color: #274546; color: #fff;">
-
-                                        <li><a class="dropdown-item subItem" href="https://unesum.edu.ec/enfermeria/" style="color: #fff;">Enfermeria</a></li>
-                                        <li><a class="dropdown-item subItem" href="https://unesum.edu.ec/laboratorio/" style="color: #fff;">Laboratorio Clinico</a></li>
-
-                                    </ul>
-                                </li>
-
-                                <!-- Ciencias Técnicas -->
-                                <li class="nav-item dropdown">
-
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Ciencias Técnicas
-                                    </a>
-
-                                    <ul class="dropdown-menu" style="background-color: #274546; color: #fff;">
-
-                                        <li><a class="dropdown-item subItem" href="https://unesum.edu.ec/ingenieriacivil/" style="color: #fff;">Ingeniería Civil</a></li>
-                                        <li><a class="dropdown-item subItem" href="https://unesum.edu.ec/tecnologiadelainformacion/" style="color: #fff;">Tecnologías de <br> la Información</a></li>
-                                        <li><a class="dropdown-item subItem" href="https://unesum.edu.ec/educacion/" style="color: #fff;">Educación</a></li>
-
-                                    </ul>
-                                </li>
-
-                                <!-- Ciencias Economicas -->
-                                <li class="nav-item dropdown">
-
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Ciencias Económicas
-                                    </a>
-
-                                    <ul class="dropdown-menu" style="background-color: #274546; color: #fff;">
-
-                                        <li><a class="dropdown-item subItem" href="https://unesum.edu.ec/ingenieriacivil/" style="color: #fff;">Administración de <br> Empresas</a></li>
-                                        <li><a class="dropdown-item subItem" href="https://unesum.edu.ec/tecnologiadelainformacion/" style="color: #fff;">Contabilidad y <br> Auditoría</a></li>
-                                        <li><a class="dropdown-item subItem" href="https://unesum.edu.ec/educacion/" style="color: #fff;">Turismo</a></li>
-
-                                    </ul>
-                                </li>
-
-                                <!-- Ciencias Naturales y de la Agricultura -->
-                                <li class="nav-item dropdown">
-
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Ciencias Naturales <br> y de la Agricultura
-                                    </a>
-
-                                    <ul class="dropdown-menu" style="background-color: #274546; color: #fff;">
-
-                                        <li><a class="dropdown-item subItem" href="https://unesum.edu.ec/ingenieriacivil/" style="color: #fff;">Agropecuaria</a></li>
-                                        <li><a class="dropdown-item subItem" href="https://unesum.edu.ec/tecnologiadelainformacion/" style="color: #fff;">Ingeniería Ambiental</a></li>
-                                        <li><a class="dropdown-item subItem" href="https://unesum.edu.ec/educacion/" style="color: #fff;">Ingeniería Forestal</a></li>
-
-                                    </ul>
-                                </li>
-
-                            </ul>
-
-
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link boton-registrar" href="../../../index.html #temas-destacados">Covenios</a>
-                        </li>
 
                     </ul>
 
@@ -200,7 +124,7 @@ while ($recorrerCarreras = mysqli_fetch_array($queryCarreras)) {
                         <!-- INPUT NOMBRE -->
                         <div class="contedorCorreo has-validation col-md-6 mb-3 ">
 
-                            <label for="nombre" class="form-label">Nombre*</label>
+                            <label for="nombre" class="form-label">Nombres*</label>
                             <input readonly type="text" name="nombre" id="nombre" class="form-control" aria-describedby="emailHelp" value="<?php echo $_REQUEST['nombre'] ?>">
 
                             <!-- validar fromulario boostrap -->
@@ -213,7 +137,7 @@ while ($recorrerCarreras = mysqli_fetch_array($queryCarreras)) {
                         <!-- INPUT APELLIDO -->
                         <div class="contedorApellido has-validation col-md-6 mb-3">
 
-                            <label for="apellido" class="form-label">Apellido*</label>
+                            <label for="apellido" class="form-label">Apellidos*</label>
                             <input readonly type="text" name="apellido" id="apellido" class="form-control" aria-describedby="emailHelp" value="<?php echo $_REQUEST['apellido'] ?>" required>
 
                             <!-- validar fromulario boostrap -->
@@ -239,12 +163,12 @@ while ($recorrerCarreras = mysqli_fetch_array($queryCarreras)) {
                         <!-- INPUT NUMERO DE CEDULA -->
                         <div class="contedorNombreUsuario has-validation col-md-6 mb-3">
 
-                            <label for="numeroCedula" class="form-label">Numero De Cedula*</label>
+                            <label for="numeroCedula" class="form-label">Número De Cedula*</label>
                             <input readonly type="text" name="numeroCedula" id="numeroCedula" class="form-control" aria-describedby="emailHelp" placeholder="Numero de cedula" value="<?php if (isset($_REQUEST['cedula'])) echo $_REQUEST['cedula'] ?>" required>
 
                             <!-- validar fromulario boostrap -->
                             <div class="invalid-feedback">
-                                Por favor, ingresa un numero de cedula.
+                                Por favor, ingresa un Número de cedula.
                             </div>
 
                         </div>
@@ -252,12 +176,12 @@ while ($recorrerCarreras = mysqli_fetch_array($queryCarreras)) {
                         <!-- INPUT NUMERO DE CELULAR -->
                         <div class="contedorNumeroCelular has-validation col-md-6 mb-3">
 
-                            <label for="numeroCelular" class="form-label">Numero de celular*</label>
+                            <label for="numeroCelular" class="form-label">Número de celular*</label>
                             <input type="number" name="numeroCelular" id="numeroCelular" class="form-control" aria-describedby="emailHelp" required>
 
                             <!-- validar fromulario boostrap -->
                             <div class="invalid-feedback">
-                                Por favor, ingresa un numero telefonico.
+                                Por favor, ingresa un Número telefonico.
                             </div>
 
                         </div>
@@ -290,7 +214,7 @@ while ($recorrerCarreras = mysqli_fetch_array($queryCarreras)) {
 
                         <!-- INPUT CARRERA-->
                         <div class="has-validation col-md-6 mb-3">
-                            <label for="seleccion-carrera" class="form-label">Carrera De Graduacion*</label>
+                            <label for="seleccion-carrera" class="form-label">Carrera*</label>
                             <select name="seleccion-carrera" id="seleccion-carrera" class="form-select" aria-label="Default select example" required>
                                 <option selected disabled value="">Seleciona una Carrera</option>
                                 <?php

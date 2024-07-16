@@ -151,7 +151,7 @@
 
         <section class="seccionFormulario" data-aos="fade-right">
 
-            <form  class="formulario"  id="formulario">
+            <form class="formulario" id="formulario">
 
                 <div>
                     <h1>Validar Graduado</h1>
@@ -161,7 +161,16 @@
                 <div>
                     <input class="form-control" type="number" id="cedula" name="cedula" placeholder="Cedula" required>
 
-                    <span>Ingresa tu cedula para verificar si eres un graduado de la carrera</span><br>
+                    <span>Por favor, ingresa tu identificación para verificar si has completado la carrera.</span><br>
+
+                    <span>
+                        <i>
+                            Si su identificación no está registrada y ya se ha graduado,
+                            por favor envíe un correo electrónico a
+                            <a href="mailto:soporte@trabajounesum.com">soporte@trabajounesum.com </a>
+                            indicándonos el su numero de cedula
+                        </i>
+                    </span><br>
                 </div>
 
                 <input type="submit" name="botonCedula" value="Validar" class="btn btn-primary botonCedula">
@@ -254,36 +263,36 @@
     <!-- LOGICA VALIDAR CEDULA -->
     <script>
         const formulario = document.getElementById('formulario')
-        const cedula =  document.getElementById('cedula').value
-        
-        
-        
-        formulario.addEventListener('submit', function(e){
+        const cedula = document.getElementById('cedula').value
+
+
+
+        formulario.addEventListener('submit', function(e) {
 
             e.preventDefault()
             let formdata = new FormData(formulario)
 
-            
-            if(!validarCedula(formdata.get('cedula'))){
-                alertaPersonalizada('INCORRECTO','Cedula Invalida','error','Regresar','no')
+
+            if (!validarCedula(formdata.get('cedula'))) {
+                alertaPersonalizada('INCORRECTO', 'Cedula Invalida', 'error', 'Regresar', 'no')
                 return
             }
 
             fetch('./respuestaCedula.php', {
-                method: 'POST',
-                body: formdata
-            })
-            .then(res => res.json())
-            .then(e=> {
+                    method: 'POST',
+                    body: formdata
+                })
+                .then(res => res.json())
+                .then(e => {
 
-                // si todo sale bien
-                if(e.mensaje === 'ok'){
-                    location.href= `../REGISTRO1/registroAspirante1.php?cedula=${e.cedula}&nombre=${e.nombre}&apellido=${e.apellido}`
-                }else if(e.mensaje === 'Cedula Inexistente/Ocupada'){
-                    alertaPersonalizada('ERROR', `${e.mensaje}`, 'question', 'Rergresar','NO')
-                    return
-                }
-            })
+                    // si todo sale bien
+                    if (e.mensaje === 'ok') {
+                        location.href = `../REGISTRO1/registroAspirante1.php?cedula=${e.cedula}&nombre=${e.nombre}&apellido=${e.apellido}`
+                    } else if (e.mensaje === 'Cedula Inexistente/Ocupada') {
+                        alertaPersonalizada('ERROR', `Cedula Inexistente`, 'question', 'Rergresar', 'NO')
+                        return
+                    }
+                })
 
 
             // ../REGISTRO1/registroAspirante1.php?cedula=$cedula&nombre=$nombre&apellido=$apellido

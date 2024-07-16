@@ -1,42 +1,41 @@
 <?php
 
-    
-    session_start();
 
-    if(isset($_POST['entrar'])){
-        
-        if($_POST['contra'] == " "){
-            echo "vacio";
-            die();
-        }
-        
-        
+session_start();
 
-        include('../conexion.php');
-        $contra = htmlspecialchars($_POST['contra']);
-        
-        
-        
-        $resultado = mysqli_query($conn, "SELECT * FROM adminunesum WHERE contra = '$contra' ");
-        
-        $contarFilas = mysqli_num_rows($resultado);
+if (isset($_POST['entrar'])) {
 
-        if($contarFilas >= 1){
-
-            $_SESSION['entra_admin'] = true;
-            header('Location: https://trabajounesum.com/ADMIN/admin.php');
-
-        }
-        else{
-            echo "nop";
-        }
+    if ($_POST['contra'] == " ") {
+        echo "vacio";
+        die();
     }
+
+
+
+    include('../conexion.php');
+    $contra = htmlspecialchars($_POST['contra']);
+
+
+
+    $resultado = mysqli_query($conn, "SELECT * FROM adminunesum WHERE contra = '$contra' ");
+
+    $contarFilas = mysqli_num_rows($resultado);
+
+    if ($contarFilas >= 1) {
+
+        $_SESSION['entra_admin'] = true;
+        header('Location: ./admin.php');
+    } else {
+        echo "nop";
+    }
+}
 
 ?>
 
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -47,14 +46,15 @@
     <link rel="stylesheet" href="estilos.css">
     <title>Admin</title>
 </head>
+
 <body class="body">
-    
+
 
     <form action="" method="post" class="form needs-validation " novalidate>
-        
+
         <div class="has-validation input-group">
 
-            
+
             <input type="password" name="contra" class="form-control" required>
             <input type="submit" value="entrar" name="entrar" class="boton btn btn-primary">
 
@@ -62,9 +62,9 @@
             <div class="invalid-feedback">
                 RELLENA
             </div>
-            
 
-            
+
+
         </div>
 
     </form>
@@ -76,4 +76,5 @@
     <script src="https://trabajounesum.com/ADMIN/validarForm.js"></script>
     <script src="https://trabajounesum.com/evitarReenvioFormulario.js"></script>
 </body>
+
 </html>

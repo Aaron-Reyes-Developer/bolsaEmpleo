@@ -358,9 +358,9 @@ if (isset($_POST['guardarContraseñaModal'])) {
 
             <div class="container-fluid ">
 
-                <!-- <a class="navbar-brand" href="../index.html">
-                    <img src="../imagenes/logoUnesum.png" alt="">
-                </a> -->
+                <a class="navbar-brand" href="./INICIOEMPRESA/inicioEmpresa.php">
+                    <img src="../imagenes/Iconos/iconoAdmin/iconoPaginas.gif" style="width: 50px;" alt="">
+                </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -540,21 +540,33 @@ if (isset($_POST['guardarContraseñaModal'])) {
                 <div class="contenedorOfertas">
                     <?php
 
-                    while ($recorrerOfertaEmpresa = mysqli_fetch_array($resultadoOfertaEmpresa)) {
+                    if (mysqli_num_rows($resultadoOfertaEmpresa) <= 0) {
                     ?>
-                        <div class="ofertaCarta">
-                            <h4><?php echo $recorrerOfertaEmpresa['puesto'] ?></h4>
-                            <span><?php echo limitar_cadena($recorrerOfertaEmpresa['detalle'], 63, '...') ?></span><br><br>
-                            <a onclick="irOferta(<?php echo $recorrerOfertaEmpresa['id_oferta_trabajo'] ?>)" class="verDetalles" style="color: blue; cursor: pointer;">Ver detalles...</a>
-                            <a href="./INGRESAROFERTA/ingresarOferta.php?editar=ok&id_oferta=<?php echo $recorrerOfertaEmpresa['id_oferta_trabajo'] ?>" class="editar">Editar...</a>
+
+                        <div class="alert alert-warning" role="alert">
+                            ¡Sin ofertas de empleo! <a href="./INGRESAROFERTA/ingresarOferta.php" style="text-decoration: underline; font-weight: 400; color: unset;"> <i>Agregar ofera + </i> </a>
                         </div>
 
-                    <?php
-                    }
+                        <?php
+                    } else {
 
+                        while ($recorrerOfertaEmpresa = mysqli_fetch_array($resultadoOfertaEmpresa)) {
+                        ?>
+                            <div class="ofertaCarta">
+                                <h4><?php echo $recorrerOfertaEmpresa['puesto'] ?></h4>
+                                <span><?php echo limitar_cadena($recorrerOfertaEmpresa['detalle'], 63, '...') ?></span><br><br>
+                                <a onclick="irOferta(<?php echo $recorrerOfertaEmpresa['id_oferta_trabajo'] ?>)" class="verDetalles" style="color: blue; cursor: pointer;">Ver detalles...</a>
+                                <a href="./INGRESAROFERTA/ingresarOferta.php?editar=ok&id_oferta=<?php echo $recorrerOfertaEmpresa['id_oferta_trabajo'] ?>" class="editar">Editar...</a>
+                            </div>
+
+                    <?php
+                        }
+                    }
                     ?>
 
                 </div>
+
+
             </div>
 
         </section>
@@ -578,7 +590,7 @@ if (isset($_POST['guardarContraseñaModal'])) {
 
             <div class="personalEmpresa">
                 <h3>
-                    Personal Empresa
+                    Personal de la Empresa
                     <a href="#" class="editarDescripcion" data-bs-toggle="modal" data-bs-target="#editarPersonalEmpresa" data-bs-whatever="@mdo">&#x270e</a>
                 </h3>
                 <hr>
@@ -593,9 +605,26 @@ if (isset($_POST['guardarContraseñaModal'])) {
                 <h3>
                     Oferta Aprobadas
                 </h3>
+
                 <hr>
 
-                <a href="./MOSTRARTODASOFERTA/mostrarTodasOferta.php?puestosAprobados=ok" class="totalPuestosAprobados"><?php echo $recorrerDatosEmpresa['ofertas_aprobadas'] ?></a>
+                <?php
+                if ($recorrerDatosEmpresa['ofertas_aprobadas'] <= 0) {
+                ?>
+
+                    <div class="alert alert-warning" role="alert">
+                        ¡Sin ofertas aprobadas! </a>
+                    </div>
+
+                <?php
+                } else {
+                ?>
+                    <a href="./MOSTRARTODASOFERTA/mostrarTodasOferta.php?puestosAprobados=ok" class="totalPuestosAprobados"><?php echo $recorrerDatosEmpresa['ofertas_aprobadas'] ?></a>
+
+                <?php
+                }
+
+                ?>
             </div>
 
         </section>

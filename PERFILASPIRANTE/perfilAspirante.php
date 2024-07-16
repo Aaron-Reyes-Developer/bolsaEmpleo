@@ -53,10 +53,10 @@ if (isset($_POST['guardar'])) {
 
 
     //datos educacion
-    $seleccion_educacion = $_POST['seleccion_educacion'];
-    $nombreInstitucion = $_POST['nombreInstitucion'];
-    $fecha_culminacion = $_POST['fecha_culminacion'];
-    $especialidad_carrera = $_POST['especialidad_carrera'];
+    // $seleccion_educacion = $_POST['seleccion_educacion'];
+    // $nombreInstitucion = $_POST['nombreInstitucion'];
+    // $fecha_culminacion = $_POST['fecha_culminacion'];
+    // $especialidad_carrera = $_POST['especialidad_carrera'];
 
 
     //datos curriculum
@@ -117,15 +117,15 @@ if (isset($_POST['guardar'])) {
 
     //////////////////////////INGRESAR EDUCACION////////////////////////////////
 
-    // insertar
-    $queryInsertarEducacion = "INSERT INTO educacion (tipo, nombre_institucion, fecha_culminacion, especializacion, fk_id_curriculum) VALUES ('$seleccion_educacion', '$nombreInstitucion', '$fecha_culminacion', '$especialidad_carrera' , '$id_curriculum')";
-    $respuestaInsertarEducacion = mysqli_query($conn, $queryInsertarEducacion);
+    // // insertar
+    // $queryInsertarEducacion = "INSERT INTO educacion (tipo, nombre_institucion, fecha_culminacion, especializacion, fk_id_curriculum) VALUES ('$seleccion_educacion', '$nombreInstitucion', '$fecha_culminacion', '$especialidad_carrera' , '$id_curriculum')";
+    // $respuestaInsertarEducacion = mysqli_query($conn, $queryInsertarEducacion);
 
 
-    if (!$respuestaInsertarEducacion) {
-        echo "error al ingresar datos a la educacion: ", mysqli_error($conn);
-        die();
-    }
+    // if (!$respuestaInsertarEducacion) {
+    //     echo "error al ingresar datos a la educacion: ", mysqli_error($conn);
+    //     die();
+    // }
 
 
 
@@ -172,6 +172,7 @@ $queryNotificacion = mysqli_query($conn, "call notificacion('$id_aspirante');");
 $n_r_notificacion = mysqli_num_rows($queryNotificacion);
 while (mysqli_next_result($conn)) {;
 }
+
 
 // desaparecer el numero de la notificacion
 if (isset($_GET['notifiUpdate'])) {
@@ -741,7 +742,7 @@ if (isset($_POST['guardarContraseñaModal'])) {
                 <div class="contenedorBotones">
 
                     <div class="aprobar imprimir">
-                        <a onclick="irImprimir(<?php echo $id_aspirante ?>)" Target="_blank"><img src="../imagenes/Iconos/imprimir.png" alt=""></a>
+                        <a onclick="irImprimir(<?php echo $id_aspirante ?>)" Target="_blank"><img src="../imagenes/Iconos/imprimir.png" alt="" title="Imprimir Cv"></a>
                     </div>
 
                 </div>
@@ -823,57 +824,6 @@ if (isset($_POST['guardarContraseñaModal'])) {
                                 </div>
 
 
-                                <!-- EDUCACION -->
-                                <div class="contenedor-inputs">
-
-                                    <h5>Educación</h5>
-                                    <hr>
-
-                                    <!-- TIPO DE EDUCACION -->
-                                    <div class="form-floating mb-3 has-validation">
-
-                                        <div class="">
-                                            <label for="" class="labelExperiencia">Nivel de educación*</label>
-
-                                            <select class="form-select col-3" name="seleccion_educacion" aria-label="Default select example" required>
-                                                <option value="Universitaria">Universitaria</option>
-                                            </select>
-
-                                            <div class="invalid-feedback">
-                                                Elije el tipo de educación
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Nombre institucion -->
-                                    <div class="form-floating mb-3 has-validation">
-                                        <input type="text" name="nombreInstitucion" class="form-control input-experiencia" id="floatingInput" placeholder="Nombre de la Institucion" required value="Unesum">
-                                        <label for="floatingInput" class="labelExperiencia">Nombre de la Institución*</label>
-
-                                        <div class="invalid-feedback">
-                                            Ingresa el nombre de la Institución
-                                        </div>
-                                    </div>
-
-
-                                    <!-- Fecha de culminacion -->
-                                    <div class="form-floating mb-3 has-validation">
-                                        <input type="date" name="fecha_culminacion" class="form-control input-experiencia" id="floatingPassword" placeholder="Cargo en el que trabajaba" required>
-                                        <label for="floatingPassword" class="labelExperiencia">Fecha de culminacion*</label>
-
-
-                                    </div>
-
-                                    <!-- especializacion de la carrera -->
-                                    <div class="form-floating mb-3 has-validation">
-                                        <input type="text" name="especialidad_carrera" class="form-control input-experiencia" id="especialidad" placeholder="ej: Ingeniero en red" required>
-                                        <label for="especialidad" class="labelExperiencia">Especialidad de la carrera*</label>
-
-                                    </div>
-
-
-                                </div>
-
 
                                 <!-- CURRICULUM -->
                                 <div class="contenedor-inputs">
@@ -884,7 +834,7 @@ if (isset($_POST['guardarContraseñaModal'])) {
                                     <!-- Detalle personal   -->
                                     <div class="mb-3 has-validation">
                                         <label for="detalle_curriculum" class="form-label">Detalle Personal*</label>
-                                        <textarea class="form-control" name="detalle_curriculum" id="detalle_curriculum" rows="3" placeholder="Sea Breve" required></textarea>
+                                        <textarea class="form-control" name="detalle_curriculum" id="detalle_curriculum" rows="3" placeholder="Sea Breve" required maxlength="500"></textarea>
 
                                         <div class="invalid-feedback">
                                             Ingresa tu detalle personal
@@ -1526,18 +1476,26 @@ if (isset($_POST['guardarContraseñaModal'])) {
 
             <!-- LINK DE PORTAFOLIO -->
             <?php
-            if ($recorrerMainAspirante['portafolio'] != null || $recorrerMainAspirante['portafolio'] != "") {
+            if ($recorrerMainAspirante['portafolio'] != "") {
             ?>
 
                 <div class="contenedorPortafolio">
+
                     <div class="miPortafolio">
+
                         <span>
                             <!-- MODAL -->
                             <a href="#" class="agregarMas" data-bs-toggle="modal" data-bs-target="#examplePortafolio" data-bs-whatever="@mdo">&#x270e</a>
                         </span>
 
                         <span>Visita mi portafolio:</span>
+
                         <a href="<?php echo $recorrerMainAspirante['portafolio'] ?>" target=”_blank”> <?php echo limitar_cadena($recorrerMainAspirante['portafolio'], 40, '...') ?> </a>
+
+                        <div style="cursor: pointer;" onclick="eliminarPortafolio(<?php echo $recorrerMainAspirante['portafolio'] ?>)">
+                            ❌
+                        </div>
+
                     </div>
                 </div>
 
@@ -1548,7 +1506,7 @@ if (isset($_POST['guardarContraseñaModal'])) {
                 <div class="contenedorPortafolio">
 
                     <div class="miPortafolio">
-                        <span>Sin Portafolio..</span>
+                        <span>Agregar Portafolio...</span>
 
                         <!-- MODAL -->
 
@@ -1805,7 +1763,7 @@ if (isset($_POST['guardarContraseñaModal'])) {
                             <!-- Descripcion -->
                             <div class="mb-3">
                                 <label for="exampleFormControlTextarea1" class="form-label">Descripcion personal*</label>
-                                <textarea class="form-control" name="descripcionPersonalModal" id="exampleFormControlTextarea1" rows="3" required><?php echo $recorrerMainAspirante['detalle_curriculum'] ?></textarea>
+                                <textarea class="form-control" name="descripcionPersonalModal" id="exampleFormControlTextarea1" rows="3" required maxlength="500"><?php echo $recorrerMainAspirante['detalle_curriculum'] ?></textarea>
                             </div>
 
 

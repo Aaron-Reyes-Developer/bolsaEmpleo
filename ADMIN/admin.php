@@ -1,9 +1,10 @@
 <?php
+
 session_start();
 
 
 if ($_SESSION['entra_admin'] != true || !isset($_SESSION['entra_admin'])) {
-    header('Location: https://trabajounesum.com/index.html');
+    header('Location: ../../index.html');
     die();
 }
 
@@ -135,10 +136,10 @@ function limitar_cadena($cadena, $limite, $sufijo)
                                 Extras
                             </div>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="https://trabajounesum.com/ADMIN/EXTRAS/TIPOOFERTAEMPLEO/tipoOferta.php">Tipo Oferta Empleo</a></li>
-                                <li><a class="dropdown-item" href="https://trabajounesum.com/ADMIN/EXTRAS/TIPOLUGAREMPLEO/tipoLugarOferta.php">Tipo Lugar Oferta Empleo</a></li>
-                                <li><a class="dropdown-item" href="https://trabajounesum.com/ADMIN/EXTRAS/TIPOHORARIO/tipoHorario.php">Tipo Horario Empleo</a></li>
-                                <li><a class="dropdown-item" href="https://trabajounesum.com/ADMIN/EXTRAS/PUBLICIDAD/publicidad.php">Publicidad</a></li>
+                                <li><a class="dropdown-item" href="./EXTRAS/TIPOOFERTAEMPLEO/tipoOferta.php">Tipo Oferta Empleo</a></li>
+                                <li><a class="dropdown-item" href="./EXTRAS/TIPOLUGAREMPLEO/tipoLugarOferta.php">Tipo Lugar Oferta Empleo</a></li>
+                                <li><a class="dropdown-item" href="./EXTRAS/TIPOHORARIO/tipoHorario.php">Tipo Horario Empleo</a></li>
+                                <li><a class="dropdown-item" href="./EXTRAS/PUBLICIDAD/publicidad.php">Publicidad</a></li>
                             </ul>
                         </div>
 

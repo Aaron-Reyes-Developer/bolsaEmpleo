@@ -163,6 +163,7 @@ if (isset($_POST['enviar'])) {
         </nav>
     </header>
 
+
     <main class="contenedor-main">
 
         <section class="seccion-formulario container" data-aos="fade-right">
@@ -182,7 +183,7 @@ if (isset($_POST['enviar'])) {
 
                 <div>
                     <select name="seleccion-registro" id="seleccion-registro" class="form-select" aria-label="Default select example" required>
-                        <option selected disabled value="">Seleciona una opcion de registro</option>
+                        <option selected disabled value="">Seleciona una opción de registro</option>
                         <option value="empresa">Empresa</option>
                         <option value="aspirante">Aspirante</option>
                     </select>
@@ -195,6 +196,11 @@ if (isset($_POST['enviar'])) {
 
                 <input type="submit" name="enviar" class="btn btn-primary boton-enviar-login" value="Continuar" />
             </form>
+
+
+            <div class="contendorFondo">
+                <img src="../imagenes/fondoRegistro.png" alt="">
+            </div>
         </section>
 
 

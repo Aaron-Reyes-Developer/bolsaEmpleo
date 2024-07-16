@@ -243,6 +243,7 @@ body{
     padding: 10px;
     margin-bottom: 50px;
     position: relative;
+    max-width: 360px;
 }
 .ofertaCarta h4{
     font-weight: 400;

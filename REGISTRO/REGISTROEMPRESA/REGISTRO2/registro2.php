@@ -277,7 +277,7 @@ if (isset($_POST['enviar'])) {
 
                     <!-- TERMINOS Y CONDICIONES -->
                     <div class="text-center contenedor-terminos">
-                        <span>Al hacer clic en «Continuar», aceptas las <a href="#" data-bs-toggle="modal" data-bs-target="#exampleCondiciones">Condiciones de uso</a> y la <a href="#" data-bs-toggle="modal" data-bs-target="#exampleTerminos">Política de privacidad</a> de Unesum.</span>
+                        <span>Al hacer clic en «Continuar», aceptas las <a href="#" data-bs-toggle="modal" data-bs-target="#exampleCondiciones">Condiciones de uso</a> y la <a href="#" data-bs-toggle="modal" data-bs-target="#exampleTerminos">Política de privacidad</a> de la bolsa de empleo.</span>
                     </div>
 
                     <!-- BOTON CONTINUAR -->
@@ -349,7 +349,7 @@ if (isset($_POST['enviar'])) {
                         <li>
                             Para cualquier pregunta o soporte, los usuarios pueden ponerse en contacto con
                             nosotros a través de la información de contacto proporcionada.
-                            <i>correoDeContacto@gmail.com</i>
+                            <i>soporte@trabajounesum.com</i>
                         </li>
                     </ul>
                 </div>

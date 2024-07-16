@@ -282,7 +282,7 @@ $queryCarreras = mysqli_query($conn, "SELECT * FROM carreras WHERE estado = 1");
                 // entra si no existe la edicion
                 if (!isset($recorrerOferta)) {
                 ?>
-                    <span onclick="agregarRequisito()" class="btn btn-primary mb-3">Agregar Requisito + </span>
+                    <span onclick="agregarRequisito()" class="btn btn-primary mb-3">Agregar más Requisitos + </span>
                 <?php
                 }
 

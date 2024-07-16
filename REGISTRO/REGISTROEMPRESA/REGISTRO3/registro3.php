@@ -49,7 +49,7 @@ if (isset($_POST['enviar'])) {
     if ($respuestaIngresar) {
 
         // ENVIAR A EL REGISTRO 3 CON LA ID DEL USUARIO
-        header("Location: ../REGISTRO4/registro4.php");
+        header("Location: ../REGISTRO4/registro4.php?nombre_empresa=" . $nombreEmpresa);
     } else {
         echo mysqli_error($conn);
     }

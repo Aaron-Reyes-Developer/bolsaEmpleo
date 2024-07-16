@@ -250,8 +250,8 @@ if (isset($_POST['submit'])) {
 
 
             <div class="contenedor-texto-login">
-                <h1>OBTEN MAS PROBABILIDADES DE <br> ENCONTRAR UN TRABAJO</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae inventore rem sapiente </p>
+                <h1>OBTÉN MÁS PROBABILIDADES DE <br> ENCONTRAR UN TRABAJO</h1>
+                <p>Descubre tu próximo gran empleo en nuestra web y da el siguiente paso en tu carrera profesional. </p>
             </div>
 
 
