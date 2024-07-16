@@ -417,28 +417,39 @@ if (isset($_POST['aprobar'])) {
             $resultadoExperiencia = mysqli_query($conn, $queryExperiencia);
 
 
-            while ($mostrarDatosExperiencia = mysqli_fetch_array($resultadoExperiencia)) {
-
+            if (mysqli_num_rows($resultadoExperiencia) == 0) {
             ?>
-                <!-- carta experiencia -->
-                <div class="contendor-experiencia">
-
-                    <div class="contenedor-imagen-experiencia">
-                        <img src="../../imagenes/Iconos/experiencia.png" alt="">
-                    </div>
-
-                    <div class="contenedor-texto-experiencia">
-                        <h5><?php echo $mostrarDatosExperiencia['cargo'] ?></h5>
-                        <p style="color: #05b14c;"> <b>Establecimiento:</b> <?php echo $mostrarDatosExperiencia['nombre_empresa'] ?></p>
-                        <span> <b>Duracion:</b> <?php echo $mostrarDatosExperiencia['tiempo_trabajo'] ?></span><br>
-                        <span> <b>Tareas Realizadas:</b> <?php echo $mostrarDatosExperiencia['tareas_realizadas'] ?></span>
-                    </div>
-
+                <div class="alert alert-warning" role="alert">
+                    ¡Sin experiencia de empleo!
                 </div>
+                <?php
+
+
+            } else {
+
+
+                while ($mostrarDatosExperiencia = mysqli_fetch_array($resultadoExperiencia)) {
+
+                ?>
+                    <!-- carta experiencia -->
+                    <div class="contendor-experiencia">
+
+                        <div class="contenedor-imagen-experiencia">
+                            <img src="../../imagenes/Iconos/experiencia.png" alt="">
+                        </div>
+
+                        <div class="contenedor-texto-experiencia">
+                            <h5><?php echo $mostrarDatosExperiencia['cargo'] ?></h5>
+                            <p style="color: #05b14c;"> <b>Establecimiento:</b> <?php echo $mostrarDatosExperiencia['nombre_empresa'] ?></p>
+                            <span> <b>Duracion:</b> <?php echo $mostrarDatosExperiencia['tiempo_trabajo'] ?></span><br>
+                            <span> <b>Tareas Realizadas:</b> <?php echo $mostrarDatosExperiencia['tareas_realizadas'] ?></span>
+                        </div>
+
+                    </div>
             <?php
 
+                }
             }
-
             ?>
 
 
@@ -452,20 +463,31 @@ if (isset($_POST['aprobar'])) {
 
                 $queryReferencia = mysqli_query($conn, "SELECT * FROM referencia WHERE fk_id_curriculum  = $id_curriculum ORDER BY id_referencia");
 
-                while ($rowReferencia = mysqli_fetch_assoc($queryReferencia)) {
+                if (mysqli_num_rows($queryReferencia) == 0) {
                 ?>
-
-                    <div class="cartaReferencia">
-                        <p><b><?php echo $rowReferencia['nombre_referente'] ?></b></p>
-                        <p class="ocupacion_referencia"><?php echo $rowReferencia['cargo_referente'] ?></p>
-                        <p><a target="_blank" href="https://wa.me/+593<?php echo $rowReferencia['numero_celular'] ?>"><?php echo $rowReferencia['numero_celular'] ?></a></p>
-                        <p><?php echo $rowReferencia['correo_referente'] ?></p>
-
+                    <div class="alert alert-warning" role="alert">
+                        ¡Sin Referencia!
                     </div>
+                    <?php
+
+
+                } else {
+
+                    while ($rowReferencia = mysqli_fetch_assoc($queryReferencia)) {
+                    ?>
+
+                        <div class="cartaReferencia">
+                            <p><b><?php echo $rowReferencia['nombre_referente'] ?></b></p>
+                            <p class="ocupacion_referencia"><?php echo $rowReferencia['cargo_referente'] ?></p>
+                            <p><a target="_blank" href="https://wa.me/+593<?php echo $rowReferencia['numero_celular'] ?>"><?php echo $rowReferencia['numero_celular'] ?></a></p>
+                            <p><?php echo $rowReferencia['correo_referente'] ?></p>
+
+                        </div>
 
                 <?php
 
 
+                    }
                 }
                 ?>
 
@@ -490,29 +512,39 @@ if (isset($_POST['aprobar'])) {
             $resultadoConsultaEducacion = mysqli_query($conn, $quieryConsultaEducacion);
 
 
-            while ($mostrarDatosPadre = mysqli_fetch_array($resultadoConsultaEducacion)) {
-
+            if (mysqli_num_rows($resultadoConsultaEducacion) == 0) {
             ?>
-
-                <!-- Carta eduacacion -->
-                <div class="contendor-educacion">
-
-                    <div class="contenedor-imagen-educacion">
-                        <img src="../../imagenes/Iconos/educacion.png" alt="">
-                    </div>
-
-                    <div class="contenedor-texto-educacion">
-                        <h5><?php echo $mostrarDatosPadre['nombre_institucion'] ?></h5>
-                        <p><?php echo "<b>Especializacion: </b>", $mostrarDatosPadre['especializacion']  ?> </p>
-                        <span><?php echo "<b>Fecha de culminacion: </b>", $mostrarDatosPadre['fecha_culminacion'] ?></span>
-                    </div>
-
+                <div class="alert alert-warning" role="alert">
+                    ¡Sin Educación!
                 </div>
+                <?php
+
+
+            } else {
+
+                while ($mostrarDatosPadre = mysqli_fetch_array($resultadoConsultaEducacion)) {
+
+                ?>
+
+                    <!-- Carta eduacacion -->
+                    <div class="contendor-educacion">
+
+                        <div class="contenedor-imagen-educacion">
+                            <img src="../../imagenes/Iconos/educacion.png" alt="">
+                        </div>
+
+                        <div class="contenedor-texto-educacion">
+                            <h5><?php echo $mostrarDatosPadre['nombre_institucion'] ?></h5>
+                            <p><?php echo "<b>Especializacion: </b>", $mostrarDatosPadre['especializacion']  ?> </p>
+                            <span><?php echo "<b>Fecha de culminacion: </b>", $mostrarDatosPadre['fecha_culminacion'] ?></span>
+                        </div>
+
+                    </div>
 
 
             <?php
+                }
             }
-
             ?>
 
 
@@ -537,10 +569,6 @@ if (isset($_POST['aprobar'])) {
 
                 ?>
 
-
-
-
-
             </h4>
 
 
@@ -550,28 +578,38 @@ if (isset($_POST['aprobar'])) {
             $quieryConsultaIdioma = "SELECT id_idioma, idioma, nivel FROM idioma WHERE fk_id_curriculum = '$id_curriculum' ";
             $resultadoConsultaIdioma = mysqli_query($conn, $quieryConsultaIdioma);
 
-
-            while ($mostrarDatosIdioma = mysqli_fetch_array($resultadoConsultaIdioma)) {
-
+            if (mysqli_num_rows($resultadoConsultaIdioma) == 0) {
             ?>
-
-                <!-- Carta eduacacion -->
-                <div class="contendor-educacion">
-
-                    <div class="contenedor-imagen-educacion">
-                        <img src="../../imagenes/logoIdioma.png" alt="">
-                    </div>
-
-                    <div class="contenedor-texto-educacion">
-                        <h5><?php echo $mostrarDatosIdioma['idioma'] ?></h5>
-                        <p><?php echo $mostrarDatosIdioma['nivel'] ?></p>
-
-                    </div>
+                <div class="alert alert-warning" role="alert">
+                    ¡Sin Idiomas!
                 </div>
+                <?php
+
+
+            } else {
+
+                while ($mostrarDatosIdioma = mysqli_fetch_array($resultadoConsultaIdioma)) {
+
+                ?>
+
+                    <!-- Carta eduacacion -->
+                    <div class="contendor-educacion">
+
+                        <div class="contenedor-imagen-educacion">
+                            <img src="../../imagenes/logoIdioma.png" alt="">
+                        </div>
+
+                        <div class="contenedor-texto-educacion">
+                            <h5><?php echo $mostrarDatosIdioma['idioma'] ?></h5>
+                            <p><?php echo $mostrarDatosIdioma['nivel'] ?></p>
+
+                        </div>
+                    </div>
 
 
             <?php
 
+                }
             }
             ?>
 
@@ -593,24 +631,34 @@ if (isset($_POST['aprobar'])) {
                 $respuestaConocimiento = mysqli_query($conn, $queryConsultarConocimiento);
 
 
-                while ($recorrerConocimiento = mysqli_fetch_array($respuestaConocimiento)) {
-
-                    // comprovar si existe algun datos 
-                    if ($recorrerConocimiento['id_conocimientos'] != null || $recorrerConocimiento['id_conocimientos'] != " ") {
+                if (mysqli_num_rows($respuestaConocimiento) == 0) {
                 ?>
-
-                        <div class="conocimiento">
-                            <span><?php echo $recorrerConocimiento['nombre_conocimiento'] ?></span>
-                        </div>
-
+                    <div class="alert alert-warning" role="alert">
+                        ¡Sin Aptitudes!
+                    </div>
                     <?php
-                    } else {
+
+
+                } else {
+
+                    while ($recorrerConocimiento = mysqli_fetch_array($respuestaConocimiento)) {
+
+                        // comprovar si existe algun datos 
+                        if ($recorrerConocimiento['id_conocimientos'] != null || $recorrerConocimiento['id_conocimientos'] != " ") {
                     ?>
-                        <h3>No hay ningun conocimiento</h3>
+
+                            <div class="conocimiento">
+                                <span><?php echo $recorrerConocimiento['nombre_conocimiento'] ?></span>
+                            </div>
+
+                        <?php
+                        } else {
+                        ?>
+                            <h3>No hay ningun conocimiento</h3>
                 <?php
+                        }
                     }
                 }
-
                 ?>
 
             </div>
