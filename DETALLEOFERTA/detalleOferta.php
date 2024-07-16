@@ -53,8 +53,13 @@ while (mysqli_next_result($conn)) {;
 if (isset($_POST['botonPostularme'])) {
 
     // ingresar oferta en la tabla postula
-    $queryPostula = "INSERT INTO postula (fecha_postulacion, fk_id_usuEstudiantes, fk_id_oferta_trabajo) VALUES (current_timestamp(), '$id_aspirante', '$id_oferta')";
+    $queryPostula = "INSERT INTO postula (fecha_postulacion, estado_noti_empresa, fk_id_usuEstudiantes, fk_id_oferta_trabajo) VALUES (current_timestamp(), 1, '$id_aspirante', '$id_oferta')";
     $respuestaPostula = mysqli_query($conn, $queryPostula);
+
+
+
+
+
 
     // si sale bien todo
     if ($respuestaPostula) {
@@ -138,7 +143,7 @@ if (isset($_REQUEST['eliminar_postulacion'])) {
 
             <div class="container-fluid ">
 
-                <a class="navbar-brand" href="./INICIOEMPRESA/inicioEmpresa.php">
+                <a class="navbar-brand" href="#">
                     <img src="../imagenes/Iconos/iconoAdmin/iconoPaginas.gif" style="width: 50px;" alt="">
                 </a>
 
