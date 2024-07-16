@@ -91,8 +91,8 @@ if (isset($_POST['botonEnviar'])) {
 
     // enviar correo
     $para = $correo;
-    $titulo = "Contraseña Temporal";
-    $mensaje = "Esta sera tu contraseña temporal:" . "\r\n" . $contra_temporal_enviada_correo . "\r\n" . "Usala para iniciar sesion y posteriormente cambiar tu contraseña";
+    $titulo = "Contrasena Temporal";
+    $mensaje = "Esta sera tu contrasena temporal:" . "\r\n" . $contra_temporal_enviada_correo . "\r\n" . "Usala para iniciar sesion y posteriormente cambiar tu contraseña";
     $miCorreo = "From: soporte@trabajounesum.com";
 
 
