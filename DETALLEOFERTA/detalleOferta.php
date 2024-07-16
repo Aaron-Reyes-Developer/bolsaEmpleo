@@ -138,9 +138,9 @@ if (isset($_REQUEST['eliminar_postulacion'])) {
 
             <div class="container-fluid ">
 
-                <!-- <a class="navbar-brand" href="../index.html">
-                    <img src="../imagenes/logoUnesum.png" alt="">
-                </a> -->
+                <a class="navbar-brand" href="./INICIOEMPRESA/inicioEmpresa.php">
+                    <img src="../imagenes/Iconos/iconoAdmin/iconoPaginas.gif" style="width: 50px;" alt="">
+                </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -318,7 +318,7 @@ if (isset($_REQUEST['eliminar_postulacion'])) {
 
                             while ($rowRequisitos = mysqli_fetch_assoc($queryRequisitos)) {
                             ?>
-                                <li> <?php echo $recorrerOferta['detalle'] ?> </li><br>
+                                <li> <?php echo $rowRequisitos['detalle'] ?> </li><br>
                             <?php
                             }
                             ?>
