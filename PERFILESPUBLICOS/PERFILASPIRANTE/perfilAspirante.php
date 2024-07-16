@@ -68,11 +68,6 @@ while (mysqli_next_result($conn)) {;
 
 
 
-
-
-
-
-
 // aprobar aspirante
 if (isset($_POST['aprobar'])) {
 
@@ -94,11 +89,16 @@ if (isset($_POST['aprobar'])) {
 
 
     // mandar un correo avisandole que le aprobaron la oferta
-    $para = $recorrerDatosEstudiantes['correo'];
-    $titulo = "¡Oferta Aprobada!";
-    $mensaje = "La empresa " . $recorrerFotoEmpresa['nombre'] . " aprobó  tu solicitud en la oferta: " . "'" . $recorrerOferta['puesto'] . "'" . "\r\nIngresa a la Bolsa de Empleo para saber los detalle de la oferta" . "\r\nEste al pendiente de su correo o número celular";
-    $correoBolsaDeEmpleo = "From: soporte@trabajounesum.com";
-
+    // $para = $recorrerDatosEstudiantes['correo'];
+    // $titulo = "¡Oferta Aprobada!";
+    // $mensaje = "La empresa " . $recorrerFotoEmpresa['nombre'] . " aprobó  tu solicitud en la oferta: " . "'" . $recorrerOferta['puesto'] . "'" . "\r\nIngresa a la Bolsa de Empleo para saber los detalle de la oferta" . "\r\nEste al pendiente de su correo o número celular";
+    // $correoBolsaDeEmpleo = "From: soporte@trabajounesum.com";
+    $to = $recorrerDatosEstudiantes['correo'];
+    $subject = '¡Oferta Aprobada!';
+    $message = "La empresa " . $recorrerFotoEmpresa['nombre'] . " aprobó  tu solicitud en la oferta: " . "'" . $recorrerOferta['puesto'] . "'" . "\r\nIngresa a la Bolsa de Empleo para saber los detalle de la oferta" . "\r\nEste al pendiente de su correo o número celular";
+    $headers = 'From: soporte@trabajounesum.com' . "\r\n" .
+        'Reply-To: soporte@trabajounesum.com' . "\r\n" .
+        'X-Mailer: PHP/' . phpversion();
 
 
     // query para decrementar la plaza de la oferta de trabajo
@@ -113,11 +113,8 @@ if (isset($_POST['aprobar'])) {
     }
 
 
-
-
-
     // si se apruba correctamente mandamos un correo
-    if ($respuestaAprobar && mail($para, $titulo, $mensaje, $correoBolsaDeEmpleo)) {
+    if ($respuestaAprobar && mail($to, $subject, $message, $headers)) {
 ?>
 
         <body>
