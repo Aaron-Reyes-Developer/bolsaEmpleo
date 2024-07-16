@@ -46,6 +46,7 @@ $recorrerFotoEmpresa = mysqli_fetch_array($queryFotoHeaderEmrpresa);
 while (mysqli_next_result($conn)) {;
 }
 
+$empresa = $recorrerFotoEmpresa['nombre'];
 
 
 //query para consultar todos los datos del aspirante (curriculum, experiencia, educacion, idioma, aptitudes, portafolio)c
@@ -64,8 +65,15 @@ $recorrerDatosEstudiantes = mysqli_fetch_array($resultadoDatosEstudiantes);
 while (mysqli_next_result($conn)) {;
 }
 
+$correoAspirante = $recorrerDatosEstudiantes['correo'];
 
+//query para consultar el nombre de la oferta (para mandarlo por correo)
+$queryNombreOferta = mysqli_query($conn, "SELECT id_oferta_trabajo ,puesto FROM oferta_trabajo WHERE id_oferta_trabajo = $id_oferta");
+$recorrerOferta = mysqli_fetch_array($queryNombreOferta);
+while (mysqli_next_result($conn)) {;
+}
 
+$puesto = $recorrerOferta['puesto'];
 
 
 // aprobar aspirante
@@ -81,21 +89,13 @@ if (isset($_POST['aprobar'])) {
 
 
 
-    //query para consultar el nombre de la oferta (para mandarlo por correo)
-    $queryNombreOferta = mysqli_query($conn, "SELECT id_oferta_trabajo ,puesto FROM oferta_trabajo WHERE id_oferta_trabajo = $id_oferta");
-    $recorrerOferta = mysqli_fetch_array($queryNombreOferta);
-    while (mysqli_next_result($conn)) {;
-    }
+
 
 
     // mandar un correo avisandole que le aprobaron la oferta
-    // $para = $recorrerDatosEstudiantes['correo'];
-    // $titulo = "¡Oferta Aprobada!";
-    // $mensaje = "La empresa " . $recorrerFotoEmpresa['nombre'] . " aprobó  tu solicitud en la oferta: " . "'" . $recorrerOferta['puesto'] . "'" . "\r\nIngresa a la Bolsa de Empleo para saber los detalle de la oferta" . "\r\nEste al pendiente de su correo o número celular";
-    // $correoBolsaDeEmpleo = "From: soporte@trabajounesum.com";
-    $to = $recorrerDatosEstudiantes['correo'];
+    $to = $correoAspirante;
     $subject = '¡Oferta Aprobada!';
-    $message = "La empresa " . $recorrerFotoEmpresa['nombre'] . " aprobó  tu solicitud en la oferta: " . "'" . $recorrerOferta['puesto'] . "'" . "\r\nIngresa a la Bolsa de Empleo para saber los detalle de la oferta" . "\r\nEste al pendiente de su correo o número celular";
+    $message = "La empresa " . $empresa . " aprobo  tu solicitud en la oferta: " . "' " . $puesto . " '" . "\r\nIngresa a la Bolsa de Empleo para saber los detalle de la oferta" . "\r\nEste al pendiente de su correo o numero celular.";
     $headers = 'From: soporte@trabajounesum.com' . "\r\n" .
         'Reply-To: soporte@trabajounesum.com' . "\r\n" .
         'X-Mailer: PHP/' . phpversion();
@@ -114,7 +114,7 @@ if (isset($_POST['aprobar'])) {
 
 
     // si se apruba correctamente mandamos un correo
-    if ($respuestaAprobar && mail($to, $subject, $message, $headers)) {
+    if ($respuestaAprobar &&  mail($to, $subject, $message, $headers)) {
 ?>
 
         <body>
@@ -369,7 +369,7 @@ if (isset($_POST['aprobar'])) {
                             $id_postula = $rowPostula['id_postula'];
 
                             // boton de desaprobar
-                            echo "<div onclick='desaprobar($id_postula)' class='contenedorDesaprobado'>
+                            echo "<div onclick='desaprobar($id_postula, $id_oferta, `$puesto`, `$empresa`, `$correoAspirante` )' class='contenedorDesaprobado'>
 
                                     Desaprobar
 
@@ -773,10 +773,14 @@ if (isset($_POST['aprobar'])) {
         }
 
         // desaprobar al aspirnate
-        const desaprobar = (id_postula) => {
+        const desaprobar = (id_postula, id_oferta, puesto, empresa, correo) => {
 
             let FD = new FormData()
             FD.append('id_postula', id_postula)
+            FD.append('id_oferta', id_oferta)
+            FD.append('puesto', puesto)
+            FD.append('empresa', empresa)
+            FD.append('correo', correo)
 
 
 
@@ -788,14 +792,14 @@ if (isset($_POST['aprobar'])) {
                 .then(data => {
 
                     console.log(data);
-                    // if (data.mensaje === 'ok') {
+                    if (data.mensaje === 'ok') {
 
-                    //     modalGuardado('Desaprobado Correctamente')
+                        modalGuardado('Desaprobado Correctamente')
 
-                    //     setTimeout(() => {
-                    //         window.location.reload()
-                    //     }, 1500)
-                    // }
+                        setTimeout(() => {
+                            window.location.reload()
+                        }, 1500)
+                    }
 
                 })
 
