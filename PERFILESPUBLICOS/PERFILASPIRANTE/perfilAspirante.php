@@ -32,6 +32,16 @@ if (isset($_SESSION['id_oferta'])) {
     if ($plazas <= 0) {
         $queryDesactivarOferta = mysqli_query($conn, "UPDATE oferta_trabajo SET estado_oferta = '0' WHERE id_oferta_trabajo = $id_oferta");
     }
+
+
+
+    //query para consultar el nombre de la oferta (para mandarlo por correo)
+    $queryNombreOferta = mysqli_query($conn, "SELECT id_oferta_trabajo ,puesto FROM oferta_trabajo WHERE id_oferta_trabajo = $id_oferta");
+    $recorrerOferta = mysqli_fetch_array($queryNombreOferta);
+    while (mysqli_next_result($conn)) {;
+    }
+
+    $puesto = $recorrerOferta['puesto'];
 }
 
 
@@ -67,13 +77,6 @@ while (mysqli_next_result($conn)) {;
 
 $correoAspirante = $recorrerDatosEstudiantes['correo'];
 
-//query para consultar el nombre de la oferta (para mandarlo por correo)
-$queryNombreOferta = mysqli_query($conn, "SELECT id_oferta_trabajo ,puesto FROM oferta_trabajo WHERE id_oferta_trabajo = $id_oferta");
-$recorrerOferta = mysqli_fetch_array($queryNombreOferta);
-while (mysqli_next_result($conn)) {;
-}
-
-$puesto = $recorrerOferta['puesto'];
 
 
 // aprobar aspirante
